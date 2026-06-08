@@ -1,16 +1,16 @@
-# ⚽ FIFA World Cup 2026 — ML Winner Prediction
+# FIFA World Cup 2026 — ML Winner Prediction
 
 A machine learning project that predicts the FIFA World Cup 2026 winner using match-by-match simulation powered by XGBoost and Monte Carlo methods.
 
 ---
 
-## 🧠 How It Works
+## How It Works
 
 Rather than picking a single predicted winner, the model simulates the entire tournament **10,000 times**. Each match outcome is sampled probabilistically from the model's predictions, producing a full **win probability distribution** across all 48 teams.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 wc2026-predictor/
@@ -41,7 +41,7 @@ wc2026-predictor/
 
 ---
 
-## 📦 Datasets
+## Datasets
 
 | # | Dataset | Source |
 |---|---------|--------|
@@ -52,7 +52,7 @@ wc2026-predictor/
 
 ---
 
-## 🔧 Features per Match
+## Features per Match
 
 - Elo rating of each team (and the difference)
 - FIFA ranking of each team
@@ -65,7 +65,7 @@ wc2026-predictor/
 
 ---
 
-## 🤖 Model
+## Model
 
 **XGBoost** classifier trained on historical World Cup match data (1930–2022).
 
@@ -74,7 +74,7 @@ wc2026-predictor/
 
 ---
 
-## 🎲 Monte Carlo Simulation
+## Monte Carlo Simulation
 
 ```
 1. Group Stage      → Simulate all 48 group matches → rank teams → advance top 2 per group + best 8 third-place teams
@@ -89,7 +89,7 @@ Repeat **10,000 times**. Final win probability per team = simulations won ÷ 10,
 
 ---
 
-## 🛠️ Stack
+## Stack
 
 ```
 pandas        Data loading and wrangling
@@ -102,7 +102,7 @@ tqdm          Progress bar for simulations
 
 ---
 
-## 📊 Output
+## Output
 
 A full win probability distribution across all 48 teams, with stage-by-stage reach probabilities:
 
