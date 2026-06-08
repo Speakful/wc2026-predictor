@@ -4,13 +4,13 @@ A machine learning project that predicts the FIFA World Cup 2026 winner using ma
 
 ---
 
-## 🧠 How It Works
+## How It Works
 
 Rather than picking a single predicted winner, the model simulates the entire tournament **10,000 times**. Each match outcome is sampled probabilistically from the model's predictions, producing a full **win probability distribution** across all 48 teams.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 wc2026-predictor/
@@ -57,7 +57,7 @@ wc2026-predictor/
 
 ---
 
-## 📦 Datasets
+## Datasets
 
 | # | Dataset | Source |
 |---|---------|--------|
@@ -68,7 +68,7 @@ wc2026-predictor/
 
 ---
 
-## 🔧 Features per Match
+## Features per Match
 
 - Elo rating of each team (and the difference)
 - FIFA ranking of each team
@@ -81,7 +81,7 @@ wc2026-predictor/
 
 ---
 
-## 🤖 Model
+## Model
 
 **XGBoost** classifier trained on historical World Cup match data filtered to the 48 qualified 2026 nations (418 matches).
 
@@ -90,7 +90,7 @@ wc2026-predictor/
 
 ---
 
-## 🎲 Monte Carlo Simulation
+## Monte Carlo Simulation
 
 ```
 1. Group Stage      → Simulate all 48 group matches → rank teams → advance top 2 per group + best 8 third-place teams
@@ -106,7 +106,7 @@ Repeat **10,000 times**. Final win probability per team = simulations won ÷ 10,
 
 ---
 
-## 🛠️ Stack
+## Stack
 
 ```
 pandas        Data loading and wrangling
@@ -120,7 +120,7 @@ streamlit     Interactive dashboard
 
 ---
 
-## 📊 Output
+## Output
 
 A full win probability distribution across all 48 teams, with stage-by-stage reach probabilities:
 
@@ -137,7 +137,7 @@ Results are visualized in an interactive **Streamlit dashboard** featuring:
 
 ---
 
-## 📌 Notes
+## Notes
 
 - 2026 uses a new **48-team / 12-group** format for the first time in World Cup history
 - The top 2 from each group + the **8 best third-place teams** advance to the Round of 32
