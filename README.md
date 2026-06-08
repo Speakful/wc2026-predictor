@@ -16,25 +16,41 @@ Rather than picking a single predicted winner, the model simulates the entire to
 wc2026-predictor/
 │
 ├── data/
-│   ├── wc_matches_1930_2022.csv          # Historical WC match results (training data)
-│   ├── elo_ratings_2026.csv              # Elo ratings for all 48 qualified teams
-│   ├── team_features_train.csv           # ML-ready team features (historical WCs)
-│   ├── team_features_test.csv            # ML-ready team features (2026 test set)
-│   ├── wc2026_host_cities.csv            # Host city and venue info
-│   ├── wc2026_matches.csv                # All 104 fixtures and bracket structure
-│   ├── wc2026_teams.csv                  # All 48 qualified teams
-│   └── wc2026_tournament_stages.csv      # Stage progression logic
+│   ├── raw/
+│   │   ├── wc_matches_1930_2022.csv          # Historical WC match results (training data)
+│   │   ├── elo_ratings_wc2026.csv            # Elo ratings for all 48 qualified teams
+│   │   ├── team_features_train.csv           # ML-ready team features (historical WCs)
+│   │   ├── team_features_test.csv            # ML-ready team features (2026 test set)
+│   │   ├── wc2026_host_cities.csv            # Host city and venue info
+│   │   ├── wc2026_matches.csv                # All 104 fixtures and bracket structure
+│   │   ├── wc2026_teams.csv                  # All 48 qualified teams
+│   │   └── wc2026_tournament_stages.csv      # Stage progression logic
+│   └── processed/
+│       ├── df_elo_clean.csv                  # Elo ratings filtered to 2026-05-27 snapshot
+│       ├── df_host_cities_clean.csv          # Host cities with region clusters
+│       ├── df_matches_clean.csv              # Cleaned historical matches
+│       ├── df_matches_features.csv           # Historical matches with Elo features (training ready)
+│       ├── df_matches_2026_clean.csv         # Raw 2026 fixtures
+│       ├── df_matches_2026_features.csv      # 2026 fixtures with all features (simulation ready)
+│       ├── df_stages_2026_clean.csv          # Tournament stage progression
+│       ├── df_teams_2026_clean.csv           # All 48 qualified teams (placeholders resolved)
+│       ├── df_test_clean.csv                 # 2026 team features test set
+│       └── df_train_clean.csv                # Historical team features training set
 │
 ├── notebooks/
 │   ├── 01_EDA.ipynb                      # Exploratory data analysis
-│   ├── 02_feature_engineering.ipynb      # Build match-level feature matrix
-│   ├── 03_model_training.ipynb           # Train and evaluate XGBoost classifier
-│   └── 04_simulation.ipynb               # Monte Carlo tournament simulation
+│   ├── 02_feature_engineering.ipynb      # Feature engineering and merging
+│   ├── 03_model_training.ipynb           # XGBoost model training
+│   ├── 04_simulation.ipynb               # Monte Carlo tournament simulation
+│   └── 05_streamlit_prep.ipynb           # Prepare outputs for the Streamlit app
 │
 ├── src/
 │   ├── features.py                       # Feature engineering functions
 │   ├── model.py                          # XGBoost training and prediction logic
 │   └── simulation.py                     # Monte Carlo simulation engine
+│
+├── app/
+│   └── app.py                            # Streamlit dashboard
 │
 └── README.md
 ```
@@ -67,7 +83,7 @@ wc2026-predictor/
 
 ## 🤖 Model
 
-**XGBoost** classifier trained on historical World Cup match data (1930–2022).
+**XGBoost** classifier trained on historical World Cup match data filtered to the 48 qualified 2026 nations (418 matches).
 
 - **Group stage target:** Win / Draw / Loss (3-class classification)
 - **Knockout stage target:** Win / Loss (draws resolved via Elo-weighted penalty probability)
@@ -82,7 +98,8 @@ wc2026-predictor/
 3. Round of 16      → Simulate 16 matches → advance 16 winners
 4. Quarter-Finals   → Simulate 8 matches  → advance 8 winners
 5. Semi-Finals      → Simulate 4 matches  → advance 4 winners
-6. Final            → Simulate 1 match    → tournament winner
+6. Third Place      → Simulate 1 match    → third place winner
+7. Final            → Simulate 1 match    → tournament winner
 ```
 
 Repeat **10,000 times**. Final win probability per team = simulations won ÷ 10,000.
@@ -98,6 +115,7 @@ xgboost       Match outcome predictor
 matplotlib    Visualizations
 seaborn       Visualizations
 tqdm          Progress bar for simulations
+streamlit     Interactive dashboard
 ```
 
 ---
@@ -111,10 +129,17 @@ A full win probability distribution across all 48 teams, with stage-by-stage rea
 - Probability of reaching the Final
 - Probability of winning the tournament
 
+Results are visualized in an interactive **Streamlit dashboard** featuring:
+- Full predicted tournament bracket with win probabilities
+- Team-by-team profile and stage reach probabilities
+- Monte Carlo insights (most common finals, biggest upsets)
+- XGBoost feature importance
+
 ---
 
 ## 📌 Notes
 
 - 2026 uses a new **48-team / 12-group** format for the first time in World Cup history
 - The top 2 from each group + the **8 best third-place teams** advance to the Round of 32
+- Training data filtered to 418 matches between currently qualified 2026 nations to ensure Elo feature coverage
 - All features use only pre-tournament data to avoid data leakage
