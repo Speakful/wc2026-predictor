@@ -16,41 +16,23 @@ Rather than picking a single predicted winner, the model simulates the entire to
 wc2026-predictor/
 │
 ├── data/
-│   ├── raw/
-│   │   ├── wc_matches_1930_2022.csv          # Historical WC match results (training data)
-│   │   ├── elo_ratings_wc2026.csv            # Elo ratings for all 48 qualified teams
-│   │   ├── team_features_train.csv           # ML-ready team features (historical WCs)
-│   │   ├── team_features_test.csv            # ML-ready team features (2026 test set)
-│   │   ├── wc2026_host_cities.csv            # Host city and venue info
-│   │   ├── wc2026_matches.csv                # All 104 fixtures and bracket structure
-│   │   ├── wc2026_teams.csv                  # All 48 qualified teams
-│   │   └── wc2026_tournament_stages.csv      # Stage progression logic
-│   └── processed/
-│       ├── df_elo_clean.csv                  # Elo ratings filtered to 2026-05-27 snapshot
-│       ├── df_host_cities_clean.csv          # Host cities with region clusters
-│       ├── df_matches_clean.csv              # Cleaned historical matches
-│       ├── df_matches_features.csv           # Historical matches with Elo features (training ready)
-│       ├── df_matches_2026_clean.csv         # Raw 2026 fixtures
-│       ├── df_matches_2026_features.csv      # 2026 fixtures with all features (simulation ready)
-│       ├── df_stages_2026_clean.csv          # Tournament stage progression
-│       ├── df_teams_2026_clean.csv           # All 48 qualified teams (placeholders resolved)
-│       ├── df_test_clean.csv                 # 2026 team features test set
-│       └── df_train_clean.csv                # Historical team features training set
+│   ├── raw/                              # Original Kaggle datasets, never modified
+│   └── processed/                        # Cleaned and feature-engineered outputs from notebooks
 │
-├── notebooks/
-│   ├── 01_EDA.ipynb                      # Exploratory data analysis
-│   ├── 02_feature_engineering.ipynb      # Feature engineering and merging
-│   ├── 03_model_training.ipynb           # XGBoost model training
-│   ├── 04_simulation.ipynb               # Monte Carlo tournament simulation
-│   └── 05_streamlit_prep.ipynb           # Prepare outputs for the Streamlit app
+├── notebooks/                            # End-to-end pipeline, run in order
+│   ├── 01_EDA.ipynb
+│   ├── 02_feature_engineering.ipynb
+│   ├── 03_model_training.ipynb
+│   ├── 04_simulation.ipynb
+│   └── 05_streamlit_prep.ipynb
 │
-├── src/
-│   ├── features.py                       # Feature engineering functions
-│   ├── model.py                          # XGBoost training and prediction logic
-│   └── simulation.py                     # Monte Carlo simulation engine
+├── src/                                  # Reusable modules imported by notebooks and the app
+│   ├── features.py
+│   ├── model.py
+│   └── simulation.py
 │
-├── app/
-│   └── app.py                            # Streamlit dashboard
+├── app/                                  # Streamlit dashboard
+│   └── app.py
 │
 └── README.md
 ```
