@@ -1,0 +1,52 @@
+{
+  "top_contenders": [
+    {
+      "team": "Argentina",
+      "win_prob_pct": 33.7
+    },
+    {
+      "team": "Spain",
+      "win_prob_pct": 29.1
+    },
+    {
+      "team": "France",
+      "win_prob_pct": 14.4
+    },
+    {
+      "team": "England",
+      "win_prob_pct": 8.0
+    },
+    {
+      "team": "Croatia",
+      "win_prob_pct": 2.8
+    }
+  ],
+  "dark_horses": [
+    {
+      "team": "Switzerland",
+      "semi_final_prob": 0.218
+    },
+    {
+      "team": "Norway",
+      "semi_final_prob": 0.1991
+    },
+    {
+      "team": "Portugal",
+      "semi_final_prob": 0.1854
+    }
+  ],
+  "biggest_upsets": [
+    {
+      "team": "Senegal",
+      "quarter_final_prob": 0.1745
+    },
+    {
+      "team": "Australia",
+      "quarter_final_prob": 0.1875
+    },
+    {
+      "team": "Brazil",
+      "quarter_final_prob": 0.1057
+    }
+  ]
+}
