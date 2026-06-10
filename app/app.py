@@ -27,25 +27,61 @@ WARNING    = "#D4A017"
 BORDER     = "#2E2E48"
 
 FLAGS = {
-    "Argentina":"🇦🇷","Algeria":"🇩🇿","Australia":"🇦🇺","Austria":"🇦🇹",
-    "Belgium":"🇧🇪","Bosnia and Herzegovina":"🇧🇦","Brazil":"🇧🇷",
-    "Cape Verde":"🇨🇻","Canada":"🇨🇦","Colombia":"🇨🇴","Croatia":"🇭🇷",
-    "Czechia":"🇨🇿","Ivory Coast":"🇨🇮","Curaçao":"🇨🇼","DR Congo":"🇨🇩",
-    "Ecuador":"🇪🇨","Egypt":"🇪🇬","England":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","France":"🇫🇷",
-    "Germany":"🇩🇪","Ghana":"🇬🇭","Haiti":"🇭🇹","Iran":"🇮🇷","Iraq":"🇮🇶",
-    "Japan":"🇯🇵","Jordan":"🇯🇴","Mexico":"🇲🇽","Morocco":"🇲🇦",
-    "Netherlands":"🇳🇱","New Zealand":"🇳🇿","Norway":"🇳🇴","Panama":"🇵🇦",
-    "Paraguay":"🇵🇾","Portugal":"🇵🇹","Qatar":"🇶🇦","Saudi Arabia":"🇸🇦",
-    "Scotland":"🏴󠁧󠁢󠁳󠁣󠁴󠁿","Senegal":"🇸🇳","South Africa":"🇿🇦",
-    "South Korea":"🇰🇷","Spain":"🇪🇸","Sweden":"🇸🇪","Switzerland":"🇨🇭",
-    "Tunisia":"🇹🇳","Turkey":"🇹🇷","Uruguay":"🇺🇾","United States":"🇺🇸",
-    "Uzbekistan":"🇺🇿",
+    "Argentina":              "\U0001F1E6\U0001F1F7",
+    "Algeria":                "\U0001F1E9\U0001F1FF",
+    "Australia":              "\U0001F1E6\U0001F1FA",
+    "Austria":                "\U0001F1E6\U0001F1F9",
+    "Belgium":                "\U0001F1E7\U0001F1EA",
+    "Bosnia and Herzegovina": "\U0001F1E7\U0001F1E6",
+    "Brazil":                 "\U0001F1E7\U0001F1F7",
+    "Cape Verde":             "\U0001F1E8\U0001F1FB",
+    "Canada":                 "\U0001F1E8\U0001F1E6",
+    "Colombia":               "\U0001F1E8\U0001F1F4",
+    "Croatia":                "\U0001F1ED\U0001F1F7",
+    "Czechia":                "\U0001F1E8\U0001F1FF",
+    "Ivory Coast":            "\U0001F1E8\U0001F1EE",
+    "Cura\u00e7ao":           "\U0001F1E8\U0001F1FC",
+    "DR Congo":               "\U0001F1E8\U0001F1E9",
+    "Ecuador":                "\U0001F1EA\U0001F1E8",
+    "Egypt":                  "\U0001F1EA\U0001F1EC",
+    "England":                "\U0001F3F4\U000E0067\U000E0062\U000E0065\U000E006E\U000E0067\U000E007F",
+    "France":                 "\U0001F1EB\U0001F1F7",
+    "Germany":                "\U0001F1E9\U0001F1EA",
+    "Ghana":                  "\U0001F1EC\U0001F1ED",
+    "Haiti":                  "\U0001F1ED\U0001F1F9",
+    "Iran":                   "\U0001F1EE\U0001F1F7",
+    "Iraq":                   "\U0001F1EE\U0001F1F6",
+    "Japan":                  "\U0001F1EF\U0001F1F5",
+    "Jordan":                 "\U0001F1EF\U0001F1F4",
+    "Mexico":                 "\U0001F1F2\U0001F1FD",
+    "Morocco":                "\U0001F1F2\U0001F1E6",
+    "Netherlands":            "\U0001F1F3\U0001F1F1",
+    "New Zealand":            "\U0001F1F3\U0001F1FF",
+    "Norway":                 "\U0001F1F3\U0001F1F4",
+    "Panama":                 "\U0001F1F5\U0001F1E6",
+    "Paraguay":               "\U0001F1F5\U0001F1FE",
+    "Portugal":               "\U0001F1F5\U0001F1F9",
+    "Qatar":                  "\U0001F1F6\U0001F1E6",
+    "Saudi Arabia":           "\U0001F1F8\U0001F1E6",
+    "Scotland":               "\U0001F3F4\U000E0067\U000E0062\U000E0073\U000E0063\U000E0074\U000E007F",
+    "Senegal":                "\U0001F1F8\U0001F1F3",
+    "South Africa":           "\U0001F1FF\U0001F1E6",
+    "South Korea":            "\U0001F1F0\U0001F1F7",
+    "Spain":                  "\U0001F1EA\U0001F1F8",
+    "Sweden":                 "\U0001F1F8\U0001F1EA",
+    "Switzerland":            "\U0001F1E8\U0001F1ED",
+    "Tunisia":                "\U0001F1F9\U0001F1F3",
+    "Turkey":                 "\U0001F1F9\U0001F1F7",
+    "Uruguay":                "\U0001F1FA\U0001F1FE",
+    "United States":          "\U0001F1FA\U0001F1F8",
+    "Uzbekistan":             "\U0001F1FA\U0001F1FF",
 }
-def flag(team): return FLAGS.get(team, "🏳️")
+def flag(team): return FLAGS.get(team, "\U0001F3F3")
 
 st.markdown(f"""
 <style>
-    .stApp {{ background-color:{BG}; color:{TEXT}; }}
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
+    .stApp {{ background-color:{BG}; color:{TEXT}; font-family:'Noto Color Emoji',Arial,sans-serif; }}
     [data-testid="stSidebar"] {{ background-color:#0F0F1C; border-right:1px solid {BORDER}; }}
     .main-title {{ font-size:2.8rem; font-weight:800; color:{PRIMARY}; text-align:center; margin-bottom:0.2rem; }}
     .subtitle {{ font-size:1.1rem; color:{TEXT_MUTED}; text-align:center; margin-bottom:2rem; }}
@@ -80,14 +116,13 @@ df, insights = load_data()
 model, feature_list = load_model()
 bp = load_bracket_positions()
 
-# ── Build group positions lookup ─────────────────────────────────────────────
+# ── Group positions lookup ────────────────────────────────────────────────────
 gp = {}
 for _, row in bp.iterrows():
     g, p, t = row['group'], int(row['position']), row['team']
     if g not in gp: gp[g] = {}
     gp[g][p] = t
 
-# Best 8 third-place teams
 thirds = bp[bp['position']==3].sort_values('probability', ascending=False)
 thirds_list = [(row['team'], row['group']) for _, row in thirds.iterrows()]
 
@@ -158,20 +193,56 @@ for mid,(q1,q2) in SF_BRACKET.items():
 final_teams = (match_winners[101], match_winners[102])
 winner = likely_winner(*final_teams)
 
+# FIX: get_pct reads win_pct/final_pct etc which are already percentages (0-100)
+# do NOT multiply by 100
 def get_pct(team, col):
     v = df[df['team']==team][col].values
-    return round(float(v[0])*100, 1) if len(v) else 0.0
+    return round(float(v[0]), 1) if len(v) else 0.0
 
-# ── Sidebar ──────────────────────────────────────────────────────────────────
+# ── Load results for live indicator ──────────────────────────────────────────
+@st.cache_data
+def load_results():
+    results_path = PROCESSED / "results.csv"
+    if results_path.exists():
+        df_r = pd.read_csv(results_path)
+        return df_r
+    return pd.DataFrame()
+
+df_results = load_results()
+
+# ── Sidebar ───────────────────────────────────────────────────────────────────
 with st.sidebar:
     try:
         st.image(str(ASSETS / "banner.png"), use_container_width=True)
     except Exception:
-        st.markdown(f'<div style="text-align:center;font-size:2rem;padding:1rem;">⚽</div>', unsafe_allow_html=True)
+        st.markdown('<div style="text-align:center;font-size:2rem;padding:1rem;">⚽</div>', unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
     view = st.radio("Navigation",
-        ["🏆 Hero","🗂 Tournament Bracket","🔍 Team Profile","🎲 Monte Carlo Insights","📊 Feature Importance"],
+        ["🏆 Hero","🗂 Tournament Bracket","🔍 Team Profile","🎲 Monte Carlo Insights","📊 Feature Importance","🧪 Model Validation"],
         label_visibility="collapsed")
+
+    # Live update indicator
+    st.markdown("<br>", unsafe_allow_html=True)
+    if not df_results.empty:
+        locked   = df_results[df_results['actual_winner'].notna() & (df_results['actual_winner'] != '')]
+        pending  = df_results[df_results['actual_winner'].isna() | (df_results['actual_winner'] == '')]
+        n_locked  = len(locked)
+        n_pending = len(pending)
+        st.markdown(f"""
+        <div style="background:#1E1E30;border:1px solid #2E2E48;border-left:3px solid #C9A84C;
+                    border-radius:6px;padding:10px 12px;font-size:11px;">
+            <div style="color:#C9A84C;font-weight:bold;margin-bottom:6px;">🔴 Live Tournament</div>
+            <div style="color:#F0F0FA;">✅ {n_locked} matches locked</div>
+            <div style="color:#9090B0;">⏳ {n_pending} matches remaining</div>
+        </div>
+        """, unsafe_allow_html=True)
+    else:
+        st.markdown(f"""
+        <div style="background:#1E1E30;border:1px solid #2E2E48;border-left:3px solid #2E2E48;
+                    border-radius:6px;padding:10px 12px;font-size:11px;">
+            <div style="color:#9090B0;">⏳ Tournament not started</div>
+        </div>
+        """, unsafe_allow_html=True)
 
 # ════════════════════════════════
 # VIEW 1 — HERO
@@ -216,144 +287,191 @@ if view == "🏆 Hero":
 
 # ════════════════════════════════
 # VIEW 2 — TOURNAMENT BRACKET
-# Official bracket: R32 → R16 → QF → SF → Final
-# Left side = SF 101 branch, Right side = SF 102 branch
 # ════════════════════════════════
 elif view == "🗂 Tournament Bracket":
     st.markdown('<div class="section-title">Tournament Bracket — Predicted Path</div>', unsafe_allow_html=True)
     st.caption("Official 2026 bracket structure. Most likely team per slot based on 10,000 Monte Carlo simulations.")
 
-    def tb(team, prob, highlight=False):
+    # Box height + gap constants — used to compute vertical alignment across stages
+    BH   = 46   # px per team box (including internal padding)
+    GAP  = 6    # px gap between two teams in a match
+    MGAP = 18   # px gap between matches in same stage
+
+    # A match block = 2 boxes + gap between them
+    MATCH_H = BH * 2 + GAP
+
+    # R32: 8 matches per side
+    # Each pair of R32 matches feeds 1 R16 match
+    # R16 match center = midpoint of its 2 R32 match centers
+    # QF match center  = midpoint of its 2 R16 match centers
+    # SF match center  = midpoint of its 2 QF match centers
+
+    def match_center(match_idx, stage_matches):
+        """Y center of a match given its index in the stage list."""
+        return match_idx * (MATCH_H + MGAP) + MATCH_H / 2
+
+    # R32 centers (8 matches)
+    r32_centers = [match_center(i, 8) for i in range(8)]
+    # R16 centers: average of pairs of R32
+    r16_centers = [(r32_centers[i*2] + r32_centers[i*2+1]) / 2 for i in range(4)]
+    # QF centers: average of pairs of R16
+    qf_centers  = [(r16_centers[i*2] + r16_centers[i*2+1]) / 2 for i in range(2)]
+    # SF centers: average of pairs of QF
+    sf_center   = (qf_centers[0] + qf_centers[1]) / 2
+
+    total_h = 8 * (MATCH_H + MGAP) - MGAP  # total height of R32 column
+
+    def px(v): return f"{v:.1f}px"
+
+    def team_box(team, prob, winner=False):
         f = flag(team)
         name = team[:14]+"…" if len(team)>15 else team
-        cls = "tb hi" if highlight else "tb"
-        return f'<div class="{cls}">{f} {name}<br><span class="prob">{prob:.1f}%</span></div>'
+        bg = "rgba(110,85,20,0.98)" if winner else "rgba(45,35,10,0.95)"
+        border = "#C9A84C" if winner else "#3a3010"
+        return (
+            f'<div style="background:{bg};border:1px solid {border};border-radius:4px;'
+            f'padding:5px 7px;font-size:8px;color:#F0F0FA;text-align:center;'
+            f'width:126px;height:{BH}px;box-sizing:border-box;'
+            f'display:flex;flex-direction:column;justify-content:center;line-height:1.3;">'
+            f'{f} {name}<br>'
+            f'<span style="color:#9090B0;font-size:7px;">{prob:.1f}%</span>'
+            f'</div>'
+        )
 
-    def spacer(h): return f'<div style="height:{h}px"></div>'
+    def match_html(team1, prob1, team2, prob2, w):
+        return (
+            team_box(team1, prob1, team1==w) +
+            f'<div style="height:{GAP}px"></div>' +
+            team_box(team2, prob2, team2==w)
+        )
 
-    # LEFT side — SF 101: QF97(R16 89,90) and QF98(R16 93,94)
-    # R32 order on left: 73,75 → R16 89, then 74,77 → R16 90, then 83,84 → R16 93, then 81,82 → R16 94
-    left_r32_order = [73, 75, 74, 77, 83, 84, 81, 82]
+    def stage_col(label, matches_data, centers, col_offset=0):
+        """
+        matches_data: list of (team1, prob1, team2, prob2, winner)
+        centers: list of Y centers for each match
+        """
+        items = [f'<div style="color:#C9A84C;font-size:9px;font-weight:bold;text-align:center;'
+                 f'letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px;">{label}</div>']
+        items.append(f'<div style="position:relative;height:{px(total_h)};">')
+        for i, (t1,p1,t2,p2,w) in enumerate(matches_data):
+            top = centers[i] - MATCH_H / 2
+            items.append(
+                f'<div style="position:absolute;top:{px(top)};left:0;">'
+                + match_html(t1,p1,t2,p2,w) +
+                f'</div>'
+            )
+        items.append('</div>')
+        return "".join(items)
+
+    def sf_col(label, team1, prob1, team2, prob2, w):
+        top = sf_center - MATCH_H / 2
+        return (
+            f'<div style="color:#C9A84C;font-size:9px;font-weight:bold;text-align:center;'
+            f'letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px;">{label}</div>'
+            f'<div style="position:relative;height:{px(total_h)};">'
+            f'<div style="position:absolute;top:{px(top)};left:0;">'
+            + match_html(team1,prob1,team2,prob2,w) +
+            f'</div></div>'
+        )
+
+    def final_col(f0, fp0, f1, fp1, win, wp):
+        fin_top  = sf_center - MATCH_H / 2
+        win_top  = sf_center - BH / 2
+        return (
+            f'<div style="color:#C9A84C;font-size:10px;font-weight:bold;text-align:center;'
+            f'letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px;">⚽ Final</div>'
+            f'<div style="position:relative;height:{px(total_h)};min-width:148px;">'
+            # finalist top
+            f'<div style="position:absolute;top:{px(fin_top)};left:0;">'
+            + team_box(f0, fp0, False) +
+            f'</div>'
+            # winner box
+            f'<div style="position:absolute;top:{px(win_top - BH - 40)};left:-8px;'
+            f'background:#C9A84C;border:2px solid #D4A017;border-radius:6px;'
+            f'padding:8px 10px;font-size:10px;font-weight:bold;color:#13131F;'
+            f'text-align:center;width:144px;box-sizing:border-box;">'
+            f'🏆 {flag(win)} {win}<br>'
+            f'<span style="font-size:8px;color:#3a2a05;">{wp:.1f}% win probability</span>'
+            f'</div>'
+            # finalist bottom
+            f'<div style="position:absolute;top:{px(fin_top + BH + GAP)};left:0;">'
+            + team_box(f1, fp1, False) +
+            f'</div>'
+            f'</div>'
+        )
+
+    # Build match data for each stage
+    left_r32_order  = [73, 75, 74, 77, 83, 84, 81, 82]
     right_r32_order = [76, 78, 79, 80, 86, 88, 85, 87]
-
     left_r16_order  = [89, 90, 93, 94]
     right_r16_order = [91, 92, 95, 96]
+    left_qf_order   = [97, 98]
+    right_qf_order  = [99, 100]
 
-    left_qf_order  = [97, 98]
-    right_qf_order = [99, 100]
-
-    def r32_html(order, side):
-        items = []
-        for i, mid in enumerate(order):
-            h, a = r32_teams[mid]
+    def r32_data(order):
+        data = []
+        for mid in order:
+            h,a = r32_teams[mid]
             w = match_winners[mid]
-            ph = get_pct(h, 'win_prob') * 100 if h != "TBD" else 0
-            pa = get_pct(a, 'win_prob') * 100 if a != "TBD" else 0
-            # Use quarter_final_pct as proxy for strength
-            ph = get_pct(h, 'quarter_final_pct')
-            pa = get_pct(a, 'quarter_final_pct')
-            if i > 0 and i % 2 == 0:
-                items.append(spacer(16))
-            elif i > 0:
-                items.append(spacer(6))
-            items.append(tb(h, ph, h==w))
-            items.append(spacer(4))
-            items.append(tb(a, pa, a==w))
-        return "".join(items)
+            data.append((h, get_pct(h,'quarter_final_pct'), a, get_pct(a,'quarter_final_pct'), w))
+        return data
 
-    def r16_html(order):
-        items = []
-        for i, mid in enumerate(order):
-            h, a = r16_matches[mid]
+    def r16_data(order):
+        data = []
+        for mid in order:
+            h,a = r16_matches[mid]
             w = match_winners[mid]
-            ph = get_pct(h, 'semi_final_pct')
-            pa = get_pct(a, 'semi_final_pct')
-            if i > 0:
-                items.append(spacer(28))
-            items.append(tb(h, ph, h==w))
-            items.append(spacer(4))
-            items.append(tb(a, pa, a==w))
-        return "".join(items)
+            data.append((h, get_pct(h,'semi_final_pct'), a, get_pct(a,'semi_final_pct'), w))
+        return data
 
-    def qf_html(order):
-        items = []
-        for i, mid in enumerate(order):
-            h, a = qf_matches[mid]
+    def qf_data(order):
+        data = []
+        for mid in order:
+            h,a = qf_matches[mid]
             w = match_winners[mid]
-            ph = get_pct(h, 'final_pct')
-            pa = get_pct(a, 'final_pct')
-            if i > 0:
-                items.append(spacer(80))
-            items.append(tb(h, ph, h==w))
-            items.append(spacer(4))
-            items.append(tb(a, pa, a==w))
-        return "".join(items)
+            data.append((h, get_pct(h,'final_pct'), a, get_pct(a,'final_pct'), w))
+        return data
 
-    sf_L_h, sf_L_a = sf_matches[101]
-    sf_R_h, sf_R_a = sf_matches[102]
-    sf_L_w = match_winners[101]
-    sf_R_w = match_winners[102]
-
+    sf_L_h, sf_L_a = sf_matches[101]; sf_L_w = match_winners[101]
+    sf_R_h, sf_R_a = sf_matches[102]; sf_R_w = match_winners[102]
     f0, f1 = final_teams
-    fp0 = get_pct(f0, 'final_pct')
-    fp1 = get_pct(f1, 'final_pct')
-    wp  = get_pct(winner, 'win_pct')
+    fp0 = get_pct(f0,'final_pct'); fp1 = get_pct(f1,'final_pct')
+    wp  = get_pct(winner,'win_pct')
+
+    COL_W  = "134px"
+    GAP_W  = "12px"
 
     html = f"""
 <style>
-.bk {{ display:flex; align-items:flex-start; justify-content:center; background:#13131F;
-       padding:20px 8px; gap:0; font-family:Arial,sans-serif; overflow-x:auto; min-height:560px; }}
-.col {{ display:flex; flex-direction:column; min-width:130px; }}
-.lbl {{ color:#C9A84C; font-size:9px; font-weight:bold; text-align:center;
-        letter-spacing:0.5px; margin-bottom:10px; text-transform:uppercase; padding-top:2px; }}
-.tb {{ background:rgba(45,35,10,0.95); border:1px solid #3a3010; border-radius:4px;
-       padding:5px 7px; font-size:8px; color:#F0F0FA; text-align:center;
-       max-width:126px; line-height:1.35; }}
-.tb.hi {{ background:rgba(110,85,20,0.98); border-color:#C9A84C; }}
-.prob {{ color:#9090B0; font-size:7px; }}
-.gap {{ width:14px; }}
-.center {{ display:flex; flex-direction:column; align-items:center; justify-content:center;
-           min-width:152px; padding:0 6px; padding-top:2px; }}
-.clbl {{ color:#C9A84C; font-size:10px; font-weight:bold; text-align:center;
-         letter-spacing:0.5px; margin-bottom:8px; text-transform:uppercase; }}
-.fin {{ background:rgba(110,85,20,0.98); border:1px solid #C9A84C; border-radius:4px;
-        padding:7px 10px; font-size:9px; color:#F0F0FA; text-align:center; width:144px; }}
-.win {{ background:#C9A84C; border:2px solid #D4A017; border-radius:6px;
-        padding:10px 12px; font-size:10px; font-weight:bold; color:#13131F;
-        text-align:center; width:144px; margin:6px 0; }}
-.win .wp {{ font-size:8px; color:#3a2a05; margin-top:3px; }}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
+* {{ box-sizing:border-box; font-family:'Noto Color Emoji',Arial,sans-serif; }}
+.bk {{ display:flex; align-items:flex-start; background:#13131F;
+       padding:16px 8px; gap:0; overflow-x:auto; }}
+.col {{ min-width:{COL_W}; flex-shrink:0; }}
+.gap {{ width:{GAP_W}; flex-shrink:0; }}
+.center-col {{ min-width:160px; flex-shrink:0; }}
 </style>
 <div class="bk">
-  <div class="col"><div class="lbl">Round of 32</div>{r32_html(left_r32_order,'left')}</div>
+  <div class="col">{stage_col("Round of 32",  r32_data(left_r32_order),  r32_centers)}</div>
   <div class="gap"></div>
-  <div class="col"><div class="lbl">Round of 16</div><div style="height:14px"></div>{r16_html(left_r16_order)}</div>
+  <div class="col">{stage_col("Round of 16",  r16_data(left_r16_order),  r16_centers)}</div>
   <div class="gap"></div>
-  <div class="col"><div class="lbl">Quarter-Finals</div><div style="height:46px"></div>{qf_html(left_qf_order)}</div>
+  <div class="col">{stage_col("Quarter-Finals", qf_data(left_qf_order),  qf_centers)}</div>
   <div class="gap"></div>
-  <div class="col"><div class="lbl">Semi-Finals</div><div style="height:110px"></div>
-    {tb(sf_L_h, get_pct(sf_L_h,'semi_final_pct'), sf_L_h==sf_L_w)}
-    {spacer(4)}{tb(sf_L_a, get_pct(sf_L_a,'semi_final_pct'), sf_L_a==sf_L_w)}
-  </div>
+  <div class="col">{sf_col("Semi-Finals", sf_L_h, get_pct(sf_L_h,'semi_final_pct'), sf_L_a, get_pct(sf_L_a,'semi_final_pct'), sf_L_w)}</div>
   <div class="gap"></div>
-  <div class="center">
-    <div class="clbl">⚽ Final</div>
-    <div class="fin">{flag(f0)} {f0}<br><span style="color:#9090B0;font-size:7px;">{fp0}%</span></div>
-    <div class="win">🏆 {flag(winner)} {winner}<div class="wp">{wp}% win probability</div></div>
-    <div class="fin">{flag(f1)} {f1}<br><span style="color:#9090B0;font-size:7px;">{fp1}%</span></div>
-  </div>
+  <div class="center-col">{final_col(f0, fp0, f1, fp1, winner, wp)}</div>
   <div class="gap"></div>
-  <div class="col"><div class="lbl">Semi-Finals</div><div style="height:110px"></div>
-    {tb(sf_R_h, get_pct(sf_R_h,'semi_final_pct'), sf_R_h==sf_R_w)}
-    {spacer(4)}{tb(sf_R_a, get_pct(sf_R_a,'semi_final_pct'), sf_R_a==sf_R_w)}
-  </div>
+  <div class="col">{sf_col("Semi-Finals", sf_R_h, get_pct(sf_R_h,'semi_final_pct'), sf_R_a, get_pct(sf_R_a,'semi_final_pct'), sf_R_w)}</div>
   <div class="gap"></div>
-  <div class="col"><div class="lbl">Quarter-Finals</div><div style="height:46px"></div>{qf_html(right_qf_order)}</div>
+  <div class="col">{stage_col("Quarter-Finals", qf_data(right_qf_order), qf_centers)}</div>
   <div class="gap"></div>
-  <div class="col"><div class="lbl">Round of 16</div><div style="height:14px"></div>{r16_html(right_r16_order)}</div>
+  <div class="col">{stage_col("Round of 16",  r16_data(right_r16_order), r16_centers)}</div>
   <div class="gap"></div>
-  <div class="col"><div class="lbl">Round of 32</div>{r32_html(right_r32_order,'right')}</div>
+  <div class="col">{stage_col("Round of 32",  r32_data(right_r32_order), r32_centers)}</div>
 </div>"""
-    components.html(html, height=600, scrolling=True)
+
+    components.html(html, height=700, scrolling=True)
 
 # ════════════════════════════════
 # VIEW 3 — TEAM PROFILE
@@ -438,9 +556,83 @@ elif view == "📊 Feature Importance":
         Accuracy: 71% · Training set: 418 historical WC matches between 2026 qualified nations</span>
     </div>""", unsafe_allow_html=True)
 
+# ════════════════════════════════
+# VIEW 6 — MODEL VALIDATION
+# ════════════════════════════════
+elif view == "🧪 Model Validation":
+    st.markdown('<div class="section-title">Model Validation — Predicted vs Actual</div>', unsafe_allow_html=True)
+
+    if df_results.empty or df_results['actual_winner'].isna().all() or (df_results['actual_winner'] == '').all():
+        st.info("No results yet — check back after the first match day.")
+    else:
+        # Filter to completed matches only
+        completed = df_results[
+            df_results['actual_winner'].notna() &
+            (df_results['actual_winner'] != '')
+        ].copy()
+
+        # Compute correct predictions for knockout matches (group stage has no predicted_winner)
+        knockout = completed[completed['stage'] != 'group_stage'].copy()
+        if not knockout.empty:
+            knockout['correct'] = knockout['actual_winner'] == knockout['predicted_winner']
+            n_correct = knockout['correct'].sum()
+            n_total   = len(knockout)
+            accuracy  = round(n_correct / n_total * 100, 1) if n_total > 0 else 0
+
+            # Accuracy metric
+            c1, c2, c3 = st.columns(3)
+            with c1:
+                st.metric("Matches Predicted", n_total)
+            with c2:
+                st.metric("Correct Predictions", int(n_correct))
+            with c3:
+                st.metric("Accuracy", f"{accuracy}%")
+
+            st.markdown('<div class="section-title">Prediction Results</div>', unsafe_allow_html=True)
+
+            # Results table
+            display = knockout[['match_id','date','stage','home_team','away_team',
+                                'home_score','away_score','actual_winner','predicted_winner','correct']].copy()
+            display['correct'] = display['correct'].map({True: '✅', False: '❌'})
+            display['stage'] = display['stage'].str.replace('_', ' ').str.title()
+            display.columns = ['ID','Date','Stage','Home','Away','Home Score','Away Score',
+                               'Actual Winner','Predicted Winner','Correct']
+            st.dataframe(display, use_container_width=True, hide_index=True)
+
+            # Upset tracker
+            upsets = knockout[~knockout['correct']].copy()
+            if not upsets.empty:
+                st.markdown('<div class="section-title">⚡ Upsets — Model Got Wrong</div>', unsafe_allow_html=True)
+                for _, row in upsets.iterrows():
+                    predicted_prob = df[df['team'] == row['predicted_winner']]['win_prob'].values
+                    actual_prob    = df[df['team'] == row['actual_winner']]['win_prob'].values
+                    pred_p  = round(float(predicted_prob[0])*100, 1) if len(predicted_prob) else 0
+                    actual_p = round(float(actual_prob[0])*100, 1) if len(actual_prob) else 0
+                    st.markdown(f"""<div class="insight-card">
+                        <strong style="color:{SECONDARY}">{flag(row['actual_winner'])} {row['actual_winner']}</strong>
+                        beat <strong>{flag(row['predicted_winner'])} {row['predicted_winner']}</strong>
+                        <br><span style="color:{TEXT_MUTED}">
+                        Predicted: {row['predicted_winner']} ({pred_p}% win prob) ·
+                        Actual: {row['actual_winner']} ({actual_p}% win prob)
+                        </span>
+                    </div>""", unsafe_allow_html=True)
+            else:
+                st.success("Model has predicted all knockout matches correctly so far!")
+
+        # Group stage results table
+        group_completed = completed[completed['stage'] == 'group_stage']
+        if not group_completed.empty:
+            st.markdown('<div class="section-title">Group Stage Results</div>', unsafe_allow_html=True)
+            display_g = group_completed[['match_id','date','group','home_team','away_team',
+                                         'home_score','away_score']].copy()
+            display_g.columns = ['ID','Date','Group','Home','Away','Home Score','Away Score']
+            st.dataframe(display_g, use_container_width=True, hide_index=True)
+
 # ── Footer ────────────────────────────────────────────────────────────────────
 st.markdown("<br><br>", unsafe_allow_html=True)
 st.markdown(f'<div style="text-align:center;color:{TEXT_MUTED};font-size:0.8rem;">'
             "Built with XGBoost + Monte Carlo simulation · 10,000 tournament simulations · "
             "Training data: 418 historical WC matches between 2026 qualified nations</div>",
             unsafe_allow_html=True)
+# NOTE: This append block is just for reference — see full file rebuild below
+
