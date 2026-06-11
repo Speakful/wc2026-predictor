@@ -5,11 +5,13 @@
 
 A machine learning project that predicts the FIFA World Cup 2026 winner using match-by-match simulation powered by XGBoost and Monte Carlo methods.
 
+🔴 **Live dashboard:** https://worldcup2026-ml-predictor.streamlit.app
+
 ---
 
 ## How It Works
 
-Rather than picking a single predicted winner, the model simulates the entire tournament **10,000 times**. Each match outcome is sampled probabilistically from the model's predictions, producing a full **win probability distribution** across all 48 teams.
+Rather than picking a single predicted winner, the model simulates the entire tournament **10,000 times**. Each match outcome is sampled probabilistically from the model's predictions, producing a full **win probability distribution** across all 48 teams. Probabilities update after each match day as real results are locked in — the simulation re-runs with completed matches as fixed outcomes while remaining matches stay probabilistic.
 
 ---
 
@@ -18,37 +20,36 @@ Rather than picking a single predicted winner, the model simulates the entire to
 ```
 wc2026-predictor/
 │
-├── assets/                               # README banner and static images
+├── assets/                               # Banner and static images
 │
 ├── data/
 │   ├── raw/                              # Original Kaggle datasets, never modified
 │   └── processed/                        # Cleaned and feature-engineered outputs from notebooks
 │
 ├── notebooks/                            # End-to-end pipeline, run in order
-│   ├── 01_eda.ipynb
-│   ├── 02_feature_engineering.ipynb
-│   ├── 03_model_training.ipynb
-│   ├── 04_simulation.ipynb
-│   └── 05_streamlit_prep.ipynb
 │
 ├── src/                                  # Reusable modules imported by notebooks and the app
-│   ├── init.py
-│   ├── features.py
-│   ├── model.py
-│   └── simulation.py
 │
 ├── app/                                  # Streamlit dashboard
-│   ├── init.py
-│   └── app.py
 │
 ├── models/                               # Saved model and feature list
-│   ├── xgb_match_predictor.pkl
-│   └── feature_list.json
 │
-├── main.py
-├── pyproject.toml
 └── README.md
 ```
+
+### Folder decisions
+
+**`data/raw/`** — original Kaggle CSVs, never touched after download. Single source of truth.
+
+**`data/processed/`** — outputs from each notebook stage: cleaned dataframes, merged feature matrices, simulation-ready inputs, bracket positions, and the live results file updated after each match day.
+
+**`notebooks/`** — the full ML pipeline broken into sequential steps. Each notebook reads from `data/processed/` and writes its outputs back there, so any stage can be rerun independently.
+
+**`src/`** — reusable logic extracted from notebooks into standalone modules, shared by both the simulation notebook and the Streamlit app.
+
+**`app/`** — Streamlit dashboard deployed on Streamlit Community Cloud.
+
+**`models/`** — serialized XGBoost model and feature list, loaded by the app at runtime.
 
 ---
 
@@ -103,6 +104,25 @@ The simulation follows the **official 2026 World Cup bracket** — Round of 32 m
 
 ---
 
+## Live Updates
+
+After each match day, real results are manually added to `data/processed/results.csv`. The simulation re-runs with completed matches locked as fixed outcomes, updating win probabilities dynamically for all remaining teams. The dashboard reflects the latest state automatically.
+
+---
+
+## Dashboard
+
+The interactive Streamlit dashboard includes five views:
+
+- **Hero** — win probabilities for all 48 teams with stage-by-stage breakdown
+- **Tournament Bracket** — official 2026 bracket with predicted path and win probabilities
+- **Team Profile** — per-team radar chart and stage reach probabilities
+- **Monte Carlo Insights** — dark horses, biggest upsets, and probability distributions
+- **Feature Importance** — XGBoost feature importance chart
+- **Model Validation** — predicted vs actual results, accuracy tracking, and upset log as the tournament progresses
+
+---
+
 ## Stack
 
 ```
@@ -114,33 +134,28 @@ matplotlib    Visualizations
 seaborn       Visualizations
 tqdm          Progress bar for simulations
 streamlit     Interactive dashboard
+plotly        Interactive charts
 joblib        Model serialization
 ```
 
 ---
 
-## Output
+## Running Locally
 
-A full win probability distribution across all 48 teams, with stage-by-stage reach probabilities:
-
-- Probability of reaching the Quarter-Finals
-- Probability of reaching the Semi-Finals
-- Probability of reaching the Final
-- Probability of winning the tournament
-
-Results are visualized in an interactive **Streamlit dashboard** featuring:
-- Full predicted tournament bracket with win probabilities
-- Team-by-team profile and stage reach probabilities
-- Monte Carlo insights (most common finals, biggest upsets)
-- XGBoost feature importance
+```bash
+git clone https://github.com/Speakful/wc2026-predictor.git
+cd wc2026-predictor
+pip install -r requirements.txt
+streamlit run app/app.py
+```
 
 ---
 
 ## Known Limitations
 
-- Training set limited to 418 matches — sufficient for rules-based Elo features but constrains draw prediction
-- Draw outcomes in group stage use a fixed 20% probability rather than match-specific prediction
-- Per-account personalized models planned once sufficient historical data accumulates per client
+- Training set limited to 418 matches — sufficient for Elo-based features but constrains draw prediction
+- Draw outcomes in group stage use a fixed base rate rather than match-specific prediction
+- Model uses pre-tournament features only — in-tournament form is not dynamically recalculated
 
 ---
 
