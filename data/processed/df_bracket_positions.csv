@@ -8,13 +8,13 @@ B,2,Canada,0.495
 B,3,Bosnia and Herzegovina,0.6848
 B,4,Qatar,0.7811
 C,1,Morocco,0.5004
-C,2,Brazil,0.25
-C,3,Scotland,0.4744
+C,2,Scotland,0.3342
+C,3,Brazil,0.3052
 C,4,Haiti,0.9114
 D,1,Paraguay,0.4111
 D,2,Australia,0.3018
-D,3,Turkey,0.25
-D,4,United States,0.6165
+D,3,United States,0.2471
+D,4,Turkey,0.1393
 E,1,Ecuador,0.515
 E,2,Germany,0.4074
 E,3,Ivory Coast,0.5608
@@ -22,7 +22,7 @@ E,4,Curaçao,0.885
 F,1,Japan,0.5583
 F,2,Netherlands,0.4874
 F,3,Tunisia,0.4239
-F,4,Sweden,0.25
+F,4,Sweden,0.4683
 G,1,Iran,0.5254
 G,2,Belgium,0.349
 G,3,Egypt,0.4909
