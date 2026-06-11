@@ -634,5 +634,5 @@ st.markdown(f'<div style="text-align:center;color:{TEXT_MUTED};font-size:0.8rem;
             "Built with XGBoost + Monte Carlo simulation · 10,000 tournament simulations · "
             "Training data: 418 historical WC matches between 2026 qualified nations</div>",
             unsafe_allow_html=True)
-# NOTE: This append block is just for reference — see full file rebuild below
+# NOTE: This append block is just for reference — see full file rebuild below !
 
