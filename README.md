@@ -1,4 +1,7 @@
 # FIFA World Cup 2026 — ML Winner Prediction
+![WC2026 Predictor](assets/banner.png)
+
+# ⚽ FIFA World Cup 2026 — ML Winner Prediction
 
 A machine learning project that predicts the FIFA World Cup 2026 winner using match-by-match simulation powered by XGBoost and Monte Carlo methods.
 
@@ -15,27 +18,35 @@ Rather than picking a single predicted winner, the model simulates the entire to
 ```
 wc2026-predictor/
 │
+├── assets/                               # README banner and static images
+│
 ├── data/
-│   ├── wc_matches_1930_2022.csv          # Historical WC match results (training data)
-│   ├── elo_ratings_2026.csv              # Elo ratings for all 48 qualified teams
-│   ├── team_features_train.csv           # ML-ready team features (historical WCs)
-│   ├── team_features_test.csv            # ML-ready team features (2026 test set)
-│   ├── wc2026_host_cities.csv            # Host city and venue info
-│   ├── wc2026_matches.csv                # All 104 fixtures and bracket structure
-│   ├── wc2026_teams.csv                  # All 48 qualified teams
-│   └── wc2026_tournament_stages.csv      # Stage progression logic
+│   ├── raw/                              # Original Kaggle datasets, never modified
+│   └── processed/                        # Cleaned and feature-engineered outputs from notebooks
 │
-├── notebooks/
-│   ├── 01_EDA.ipynb                      # Exploratory data analysis
-│   ├── 02_feature_engineering.ipynb      # Build match-level feature matrix
-│   ├── 03_model_training.ipynb           # Train and evaluate XGBoost classifier
-│   └── 04_simulation.ipynb               # Monte Carlo tournament simulation
+├── notebooks/                            # End-to-end pipeline, run in order
+│   ├── 01_eda.ipynb
+│   ├── 02_feature_engineering.ipynb
+│   ├── 03_model_training.ipynb
+│   ├── 04_simulation.ipynb
+│   └── 05_streamlit_prep.ipynb
 │
-├── src/
-│   ├── features.py                       # Feature engineering functions
-│   ├── model.py                          # XGBoost training and prediction logic
-│   └── simulation.py                     # Monte Carlo simulation engine
+├── src/                                  # Reusable modules imported by notebooks and the app
+│   ├── init.py
+│   ├── features.py
+│   ├── model.py
+│   └── simulation.py
 │
+├── app/                                  # Streamlit dashboard
+│   ├── init.py
+│   └── app.py
+│
+├── models/                               # Saved model and feature list
+│   ├── xgb_match_predictor.pkl
+│   └── feature_list.json
+│
+├── main.py
+├── pyproject.toml
 └── README.md
 ```
 
@@ -56,36 +67,39 @@ wc2026-predictor/
 
 - Elo rating of each team (and the difference)
 - FIFA ranking of each team
-- Historical head-to-head record
-- Goals scored / conceded in recent matches (form)
-- World Cup experience (number of past tournaments)
+- Win rate and goals per match
+- Historical Elo minimum (floor strength indicator)
 - Confederation (UEFA, CONMEBOL, CONCACAF, CAF, AFC, OFC)
-- Host continent advantage
-- Tournament stage (group stage vs knockout)
+- Rank difference and Elo difference between teams
 
 ---
 
 ## Model
 
-**XGBoost** classifier trained on historical World Cup match data (1930–2022).
+**XGBoost** binary classifier trained on historical World Cup match data filtered to the 48 qualified 2026 nations (418 matches).
 
-- **Group stage target:** Win / Draw / Loss (3-class classification)
-- **Knockout stage target:** Win / Loss (draws resolved via Elo-weighted penalty probability)
+- **Target:** Home Win vs No Home Win (draws resolved separately)
+- **Accuracy:** 71% on held-out test set
+- **Features:** 13 features selected via correlation analysis
+- **Knockout draws** resolved via Elo-weighted penalty probability
 
 ---
 
 ## Monte Carlo Simulation
 
 ```
-1. Group Stage      → Simulate all 48 group matches → rank teams → advance top 2 per group + best 8 third-place teams
-2. Round of 32      → Simulate 16 matches → advance 32 winners  
-3. Round of 16      → Simulate 16 matches → advance 16 winners
-4. Quarter-Finals   → Simulate 8 matches  → advance 8 winners
-5. Semi-Finals      → Simulate 4 matches  → advance 4 winners
-6. Final            → Simulate 1 match    → tournament winner
+Group Stage      → Simulate all 48 group matches → rank teams → advance top 2 per group + best 8 third-place teams
+Round of 32      → Simulate 16 matches → advance 32 winners
+Round of 16      → Simulate 16 matches → advance 16 winners
+Quarter-Finals   → Simulate 8 matches  → advance 8 winners
+Semi-Finals      → Simulate 4 matches  → advance 4 winners
+Third Place      → Simulate 1 match    → third place winner
+Final            → Simulate 1 match    → tournament winner
 ```
 
 Repeat **10,000 times**. Final win probability per team = simulations won ÷ 10,000.
+
+The simulation follows the **official 2026 World Cup bracket** — Round of 32 matchups are determined by group positions, and the knockout path is fixed according to the official fixture.
 
 ---
 
@@ -95,9 +109,12 @@ Repeat **10,000 times**. Final win probability per team = simulations won ÷ 10,
 pandas        Data loading and wrangling
 numpy         Probability sampling
 xgboost       Match outcome predictor
+scikit-learn  Preprocessing and evaluation
 matplotlib    Visualizations
 seaborn       Visualizations
 tqdm          Progress bar for simulations
+streamlit     Interactive dashboard
+joblib        Model serialization
 ```
 
 ---
@@ -111,10 +128,25 @@ A full win probability distribution across all 48 teams, with stage-by-stage rea
 - Probability of reaching the Final
 - Probability of winning the tournament
 
+Results are visualized in an interactive **Streamlit dashboard** featuring:
+- Full predicted tournament bracket with win probabilities
+- Team-by-team profile and stage reach probabilities
+- Monte Carlo insights (most common finals, biggest upsets)
+- XGBoost feature importance
+
 ---
 
-## 📌 Notes
+## Known Limitations
+
+- Training set limited to 418 matches — sufficient for rules-based Elo features but constrains draw prediction
+- Draw outcomes in group stage use a fixed 20% probability rather than match-specific prediction
+- Per-account personalized models planned once sufficient historical data accumulates per client
+
+---
+
+## Notes
 
 - 2026 uses a new **48-team / 12-group** format for the first time in World Cup history
 - The top 2 from each group + the **8 best third-place teams** advance to the Round of 32
+- Training data filtered to 418 matches between currently qualified 2026 nations to ensure Elo feature coverage
 - All features use only pre-tournament data to avoid data leakage
