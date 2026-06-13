@@ -567,8 +567,8 @@ elif view == "🧪 Model Validation":
     else:
         # Filter to completed matches only
         completed = df_results[
-            df_results['actual_winner'].notna() &
-            (df_results['actual_winner'] != '')
+            df_results['home_score'].notna() &
+            (df_results['home_score'] != '')
         ].copy()
 
         # Compute correct predictions for knockout matches (group stage has no predicted_winner)
