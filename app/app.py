@@ -224,8 +224,8 @@ with st.sidebar:
     # Live update indicator
     st.markdown("<br>", unsafe_allow_html=True)
     if not df_results.empty:
-        locked   = df_results[df_results['actual_winner'].notna() & (df_results['actual_winner'] != '')]
-        pending  = df_results[df_results['actual_winner'].isna() | (df_results['actual_winner'] == '')]
+        locked   = df_results[df_results['home_score'].notna() & (df_results['home_score'] != '')]
+        pending  = df_results[df_results['home_score'].isna() | (df_results['home_score'] == '')]
         n_locked  = len(locked)
         n_pending = len(pending)
         st.markdown(f"""
