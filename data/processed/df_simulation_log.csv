@@ -13,14 +13,14 @@ match_id,home_team,away_team,status,winner
 12,Sweden,Tunisia,predicted,
 13,Spain,Cape Verde,predicted,
 14,Belgium,Egypt,locked,
-15,Saudi Arabia,Uruguay,predicted,
-16,Iran,New Zealand,predicted,
+15,Saudi Arabia,Uruguay,locked,
+16,Iran,New Zealand,locked,
 17,France,Senegal,predicted,
 18,Iraq,Norway,predicted,
 19,Argentina,Algeria,locked,
 20,Austria,Jordan,locked,
-21,Portugal,DR Congo,predicted,
-22,England,Croatia,predicted,
+21,Portugal,DR Congo,locked,
+22,England,Croatia,locked,
 23,Ghana,Panama,predicted,
 24,Uzbekistan,Colombia,predicted,
 25,Czechia,South Africa,locked,
@@ -71,35 +71,35 @@ match_id,home_team,away_team,status,winner
 70,DR Congo,Uzbekistan,predicted,
 71,Algeria,Austria,predicted,
 72,Jordan,Argentina,predicted,
-73,Mexico,Qatar,predicted,Mexico
+73,Czechia,Qatar,predicted,Czechia
 74,Scotland,Netherlands,predicted,Netherlands
-75,Ecuador,Switzerland,predicted,Ecuador
+75,Germany,Switzerland,predicted,Germany
 76,Japan,Morocco,predicted,Morocco
-77,Germany,France,predicted,France
-78,Norway,Brazil,predicted,Norway
-79,South Korea,Brazil,predicted,Brazil
+77,Ecuador,France,predicted,France
+78,Norway,Turkey,predicted,Norway
+79,Mexico,Sweden,predicted,Mexico
 80,England,Saudi Arabia,predicted,Saudi Arabia
 81,Belgium,Saudi Arabia,predicted,Saudi Arabia
-82,Australia,Switzerland,predicted,Switzerland
-83,Uruguay,Algeria,predicted,Uruguay
-84,Colombia,Ghana,predicted,Ghana
-85,Canada,Iran,predicted,Iran
-86,United States,Egypt,predicted,Egypt
+82,Paraguay,Switzerland,predicted,Switzerland
+83,Uruguay,Algeria,predicted,Algeria
+84,Portugal,Panama,predicted,Portugal
+85,Canada,Sweden,predicted,Canada
+86,United States,Iran,predicted,Iran
 87,Argentina,Spain,predicted,Spain
-88,Portugal,Turkey,predicted,Portugal
-89,Mexico,Ecuador,predicted,Mexico
+88,Colombia,Turkey,predicted,Colombia
+89,Czechia,Germany,predicted,Germany
 90,Netherlands,France,predicted,France
 91,Morocco,Norway,predicted,Norway
-92,Brazil,Saudi Arabia,predicted,Brazil
-93,Uruguay,Ghana,predicted,Ghana
+92,Mexico,Saudi Arabia,predicted,Mexico
+93,Algeria,Portugal,predicted,Portugal
 94,Saudi Arabia,Switzerland,predicted,Switzerland
-95,Egypt,Portugal,predicted,Portugal
-96,Iran,Spain,predicted,Spain
-97,Mexico,France,predicted,France
-98,Ghana,Switzerland,predicted,Switzerland
-99,Norway,Brazil,predicted,Norway
-100,Portugal,Spain,predicted,Portugal
-101,France,Switzerland,predicted,Switzerland
-102,Norway,Portugal,predicted,Norway
-103,France,Portugal,predicted,France
-104,Switzerland,Norway,predicted,Norway
+95,Iran,Colombia,predicted,Colombia
+96,Canada,Spain,predicted,Spain
+97,Germany,France,predicted,France
+98,Portugal,Switzerland,predicted,Switzerland
+99,Norway,Mexico,predicted,Mexico
+100,Colombia,Spain,predicted,Spain
+101,France,Switzerland,predicted,France
+102,Mexico,Spain,predicted,Mexico
+103,Switzerland,Spain,predicted,Spain
+104,France,Mexico,predicted,France
