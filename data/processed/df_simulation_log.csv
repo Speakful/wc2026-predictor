@@ -21,20 +21,20 @@ match_id,home_team,away_team,status,winner
 20,Austria,Jordan,locked,
 21,Portugal,DR Congo,locked,
 22,England,Croatia,locked,
-23,Ghana,Panama,predicted,
+23,Ghana,Panama,locked,
 24,Uzbekistan,Colombia,predicted,
 25,Czechia,South Africa,locked,
 26,Switzerland,Bosnia and Herzegovina,locked,
 27,Canada,Qatar,locked,
 28,Mexico,South Korea,predicted,
-29,United States,Australia,predicted,
-30,Scotland,Morocco,predicted,
+29,United States,Australia,locked,
+30,Scotland,Morocco,locked,
 31,Brazil,Haiti,predicted,
 32,Turkey,Paraguay,locked,
 33,Netherlands,Sweden,locked,
 34,Germany,Ivory Coast,locked,
 35,Ecuador,Curaçao,predicted,
-36,Tunisia,Japan,predicted,
+36,Tunisia,Japan,locked,
 37,Spain,Saudi Arabia,predicted,
 38,Belgium,Iran,predicted,
 39,Uruguay,Cape Verde,predicted,
@@ -71,35 +71,35 @@ match_id,home_team,away_team,status,winner
 70,DR Congo,Uzbekistan,locked,
 71,Algeria,Austria,predicted,
 72,Jordan,Argentina,predicted,
-73,South Korea,Bosnia and Herzegovina,predicted,South Korea
+73,South Korea,Qatar,predicted,South Korea
 74,Brazil,Japan,predicted,Japan
-75,Ecuador,Czechia,predicted,Ecuador
-76,Netherlands,Morocco,predicted,Morocco
+75,Ecuador,Switzerland,predicted,Switzerland
+76,Netherlands,Scotland,predicted,Netherlands
 77,Germany,Norway,predicted,Norway
-78,France,Scotland,predicted,France
-79,Mexico,Scotland,predicted,Mexico
+78,France,Morocco,predicted,France
+79,Mexico,Morocco,predicted,Morocco
 80,England,Ivory Coast,predicted,England
-81,Belgium,Czechia,predicted,Belgium
-82,Turkey,Qatar,predicted,Turkey
-83,Spain,Algeria,predicted,Algeria
-84,DR Congo,Croatia,predicted,Croatia
+81,Belgium,Ivory Coast,predicted,Ivory Coast
+82,Turkey,Switzerland,predicted,Switzerland
+83,Spain,Argentina,predicted,Argentina
+84,Colombia,Croatia,predicted,Croatia
 85,Canada,Ivory Coast,predicted,Canada
-86,United States,Iran,predicted,Iran
-87,Argentina,Uruguay,predicted,Argentina
-88,Colombia,Paraguay,predicted,Colombia
-89,South Korea,Ecuador,predicted,Ecuador
+86,Paraguay,Iran,predicted,Paraguay
+87,Austria,Uruguay,predicted,Uruguay
+88,Portugal,United States,predicted,Portugal
+89,South Korea,Switzerland,predicted,South Korea
 90,Japan,Norway,predicted,Norway
-91,Morocco,France,predicted,France
-92,Mexico,England,predicted,England
-93,Algeria,Croatia,predicted,Croatia
-94,Belgium,Turkey,predicted,Turkey
-95,Iran,Colombia,predicted,Colombia
-96,Canada,Argentina,predicted,Argentina
-97,Ecuador,Norway,predicted,Ecuador
-98,Croatia,Turkey,predicted,Turkey
+91,Netherlands,France,predicted,France
+92,Morocco,England,predicted,England
+93,Argentina,Croatia,predicted,Croatia
+94,Ivory Coast,Switzerland,predicted,Switzerland
+95,Paraguay,Portugal,predicted,Portugal
+96,Canada,Uruguay,predicted,Uruguay
+97,South Korea,Norway,predicted,Norway
+98,Croatia,Switzerland,predicted,Croatia
 99,France,England,predicted,France
-100,Colombia,Argentina,predicted,Argentina
-101,Ecuador,Turkey,predicted,Turkey
-102,France,Argentina,predicted,Argentina
-103,Ecuador,France,predicted,France
-104,Turkey,Argentina,predicted,Argentina
+100,Portugal,Uruguay,predicted,Portugal
+101,Norway,Croatia,predicted,Croatia
+102,France,Portugal,predicted,France
+103,Norway,Portugal,predicted,Norway
+104,Croatia,France,predicted,France
