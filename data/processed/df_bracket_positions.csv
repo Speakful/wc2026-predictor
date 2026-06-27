@@ -1,49 +1,49 @@
 group,position,team,probability
-A,1,Mexico,0.695
-A,2,South Korea,0.6167
-A,3,Czechia,0.8595
-A,4,South Africa,0.8602
-B,1,Canada,0.9764
-B,2,Qatar,0.7987
-B,3,Switzerland,0.7987
-B,4,Bosnia and Herzegovina,0.7751
-C,1,Brazil,0.6824
-C,2,Scotland,0.4643
-C,3,Morocco,0.7991
-C,4,Haiti,0.9392
-D,1,Turkey,0.4456
-D,2,Paraguay,0.3641
-D,3,United States,0.4388
-D,4,Australia,0.4901
-E,1,Ecuador,0.8195
-E,2,Germany,0.8195
+A,1,Mexico,0.6348
+A,2,Czechia,0.4389
+A,3,South Africa,0.3224
+A,4,South Korea,0.3224
+B,1,Canada,0.9751
+B,2,Qatar,0.8002
+B,3,Switzerland,0.8002
+B,4,Bosnia and Herzegovina,0.7753
+C,1,Brazil,0.6823
+C,2,Scotland,0.4641
+C,3,Morocco,0.7987
+C,4,Haiti,0.9395
+D,1,Turkey,0.4474
+D,2,Paraguay,0.3637
+D,3,United States,0.4307
+D,4,Australia,0.484
+E,1,Ecuador,0.8256
+E,2,Germany,0.8256
 E,3,Ivory Coast,1.0
-E,4,Curaçao,0.8195
+E,4,Curaçao,0.8256
 F,1,Netherlands,1.0
 F,2,Japan,1.0
 F,3,Tunisia,1.0
 F,4,Sweden,1.0
-G,1,Iran,0.4874
-G,2,Belgium,0.3366
-G,3,Egypt,0.6519
-G,4,New Zealand,0.8787
-H,1,Saudi Arabia,0.4382
-H,2,Uruguay,0.6434
-H,3,Spain,0.4295
-H,4,Cape Verde,0.8489
-I,1,France,0.6703
-I,2,Norway,0.4314
-I,3,Iraq,0.4753
-I,4,Senegal,0.3139
-J,1,Argentina,0.8535
-J,2,Algeria,0.5061
-J,3,Austria,0.4917
-J,4,Jordan,0.8269
-K,1,Colombia,0.7563
-K,2,Portugal,0.6107
-K,3,DR Congo,0.5263
-K,4,Uzbekistan,0.5582
-L,1,England,0.7308
-L,2,Croatia,0.5885
-L,3,Ghana,0.4676
-L,4,Panama,0.8765
+G,1,Iran,0.4843
+G,2,Belgium,0.3264
+G,3,Egypt,0.6474
+G,4,New Zealand,0.8685
+H,1,Saudi Arabia,0.4361
+H,2,Uruguay,0.6486
+H,3,Spain,0.4324
+H,4,Cape Verde,0.8512
+I,1,France,0.7621
+I,2,Norway,0.4293
+I,3,Iraq,0.9847
+I,4,Senegal,0.54
+J,1,Argentina,0.8501
+J,2,Algeria,0.4997
+J,3,Austria,0.4899
+J,4,Jordan,0.8245
+K,1,Portugal,0.5857
+K,2,Colombia,0.4252
+K,3,DR Congo,0.605
+K,4,Uzbekistan,0.703
+L,1,England,0.7383
+L,2,Croatia,0.5886
+L,3,Ghana,0.4699
+L,4,Panama,0.8794
