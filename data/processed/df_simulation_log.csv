@@ -58,48 +58,48 @@ match_id,home_team,away_team,status,winner
 57,Japan,Sweden,locked,
 58,Tunisia,Netherlands,locked,
 59,Turkey,United States,predicted,
-60,Paraguay,Australia,predicted,
+60,Paraguay,Australia,locked,
 61,Norway,France,predicted,
 62,Senegal,Iraq,locked,
 63,Cape Verde,Saudi Arabia,locked,
 64,Uruguay,Spain,locked,
 65,Egypt,Iran,predicted,
-66,New Zealand,Belgium,predicted,
+66,New Zealand,Belgium,locked,
 67,Panama,England,locked,
 68,Croatia,Ghana,locked,
 69,Colombia,Portugal,predicted,
 70,DR Congo,Uzbekistan,locked,
-71,Algeria,Austria,predicted,
-72,Jordan,Argentina,predicted,
-73,Mexico,Qatar,predicted,Mexico
-74,Brazil,Japan,predicted,Brazil
-75,Ecuador,Czechia,predicted,Ecuador
-76,Netherlands,Scotland,predicted,Netherlands
-77,Germany,France,predicted,France
-78,Senegal,Morocco,predicted,Morocco
-79,South Korea,Morocco,predicted,Morocco
+71,Algeria,Austria,locked,
+72,Jordan,Argentina,locked,
+73,South Korea,Bosnia and Herzegovina,predicted,South Korea
+74,Brazil,Japan,predicted,Japan
+75,Ecuador,Czechia,predicted,Czechia
+76,Netherlands,Haiti,predicted,Netherlands
+77,Germany,Senegal,predicted,Senegal
+78,Norway,Morocco,predicted,Morocco
+79,Mexico,Morocco,predicted,Morocco
 80,England,Ivory Coast,predicted,England
-81,Iran,Czechia,predicted,Iran
-82,Turkey,Switzerland,predicted,Turkey
-83,Spain,Algeria,predicted,Algeria
-84,DR Congo,Croatia,predicted,Croatia
-85,Canada,Ivory Coast,predicted,Canada
-86,Paraguay,Belgium,predicted,Paraguay
+81,Belgium,Czechia,predicted,Czechia
+82,Turkey,Qatar,predicted,Turkey
+83,Saudi Arabia,Algeria,predicted,Algeria
+84,Colombia,Croatia,predicted,Croatia
+85,Canada,Ivory Coast,predicted,Ivory Coast
+86,United States,Egypt,predicted,Egypt
 87,Argentina,Uruguay,predicted,Argentina
-88,Portugal,Ivory Coast,predicted,Portugal
-89,Mexico,Ecuador,predicted,Mexico
-90,Brazil,France,predicted,France
+88,Portugal,Paraguay,predicted,Portugal
+89,South Korea,Czechia,predicted,South Korea
+90,Japan,Senegal,predicted,Japan
 91,Netherlands,Morocco,predicted,Morocco
 92,Morocco,England,predicted,England
 93,Algeria,Croatia,predicted,Croatia
-94,Iran,Turkey,predicted,Turkey
-95,Paraguay,Portugal,predicted,Portugal
-96,Canada,Argentina,predicted,Argentina
-97,Mexico,France,predicted,France
-98,Croatia,Turkey,predicted,Turkey
+94,Czechia,Turkey,predicted,Turkey
+95,Egypt,Portugal,predicted,Portugal
+96,Ivory Coast,Argentina,predicted,Argentina
+97,South Korea,Japan,predicted,Japan
+98,Croatia,Turkey,predicted,Croatia
 99,Morocco,England,predicted,England
 100,Portugal,Argentina,predicted,Argentina
-101,France,Turkey,predicted,Turkey
+101,Japan,Croatia,predicted,Japan
 102,England,Argentina,predicted,Argentina
-103,France,England,predicted,France
-104,Turkey,Argentina,predicted,Argentina
+103,Croatia,England,predicted,England
+104,Japan,Argentina,predicted,Japan
