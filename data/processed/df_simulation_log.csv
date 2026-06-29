@@ -71,35 +71,35 @@ match_id,home_team,away_team,status,winner
 70,DR Congo,Uzbekistan,locked,
 71,Algeria,Austria,locked,
 72,Jordan,Argentina,locked,
-73,South Korea,Bosnia and Herzegovina,predicted,South Korea
+73,Mexico,Qatar,locked,Canada
 74,Brazil,Japan,predicted,Japan
 75,Ecuador,Czechia,predicted,Czechia
-76,Netherlands,Haiti,predicted,Netherlands
+76,Netherlands,Scotland,predicted,Scotland
 77,Germany,Senegal,predicted,Senegal
-78,Norway,Morocco,predicted,Morocco
-79,Mexico,Morocco,predicted,Morocco
+78,France,Morocco,predicted,Morocco
+79,South Korea,Morocco,predicted,Morocco
 80,England,Ivory Coast,predicted,England
 81,Belgium,Czechia,predicted,Czechia
-82,Turkey,Qatar,predicted,Turkey
-83,Saudi Arabia,Algeria,predicted,Algeria
-84,Colombia,Croatia,predicted,Croatia
-85,Canada,Ivory Coast,predicted,Ivory Coast
-86,United States,Egypt,predicted,Egypt
-87,Argentina,Uruguay,predicted,Argentina
-88,Portugal,Paraguay,predicted,Portugal
-89,South Korea,Czechia,predicted,South Korea
+82,United States,Switzerland,predicted,Switzerland
+83,Saudi Arabia,Argentina,predicted,Argentina
+84,DR Congo,Croatia,predicted,Croatia
+85,Canada,Ivory Coast,predicted,Canada
+86,Paraguay,Iran,predicted,Paraguay
+87,Algeria,Uruguay,predicted,Uruguay
+88,Colombia,Australia,predicted,Australia
+89,Canada,Czechia,predicted,Canada
 90,Japan,Senegal,predicted,Japan
-91,Netherlands,Morocco,predicted,Morocco
+91,Scotland,Morocco,predicted,Morocco
 92,Morocco,England,predicted,England
-93,Algeria,Croatia,predicted,Croatia
-94,Czechia,Turkey,predicted,Turkey
-95,Egypt,Portugal,predicted,Portugal
-96,Ivory Coast,Argentina,predicted,Argentina
-97,South Korea,Japan,predicted,Japan
-98,Croatia,Turkey,predicted,Croatia
+93,Argentina,Croatia,predicted,Argentina
+94,Czechia,Switzerland,predicted,Switzerland
+95,Paraguay,Australia,predicted,Paraguay
+96,Canada,Uruguay,predicted,Uruguay
+97,Canada,Japan,predicted,Japan
+98,Argentina,Switzerland,predicted,Argentina
 99,Morocco,England,predicted,England
-100,Portugal,Argentina,predicted,Argentina
-101,Japan,Croatia,predicted,Japan
-102,England,Argentina,predicted,Argentina
-103,Croatia,England,predicted,England
-104,Japan,Argentina,predicted,Japan
+100,Paraguay,Uruguay,predicted,Paraguay
+101,Japan,Argentina,predicted,Argentina
+102,England,Paraguay,predicted,England
+103,Japan,Paraguay,predicted,Paraguay
+104,Argentina,England,predicted,Argentina
