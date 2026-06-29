@@ -132,22 +132,17 @@ third_slot_groups = {
     'AEHIJ': set('AEHIJ'), 'BEFIJ': set('BEFIJ'),
     'EFGIJ': set('EFGIJ'), 'DEIJL': set('DEIJL'),
 }
-compat = {slot: [] for slot in third_slot_groups}
-for team, group in thirds_list:
-    for slot, groups in third_slot_groups.items():
-        if group in groups:
-            compat[slot].append((team, group))
 
-assigned_thirds = {}
-used_teams = set()
-for slot in sorted(compat, key=lambda s: len(compat[s])):
-    for team, group in compat[slot]:
-        if team not in used_teams:
-            assigned_thirds[slot] = team
-            used_teams.add(team)
-            break
-    if slot not in assigned_thirds:
-        assigned_thirds[slot] = "TBD"
+assigned_thirds = {
+    'ABCDF': 'Paraguay',
+    'CDFGH': 'Sweden',
+    'CEFHI': 'Ecuador',
+    'EHIJK': 'DR Congo',
+    'AEHIJ': 'Algeria',
+    'BEFIJ': 'Bosnia and Herzegovina',
+    'EFGIJ': 'Senegal',
+    'DEIJL': 'Ghana',
+}
 
 def resolve_slot(slot):
     pos = int(slot[0])
