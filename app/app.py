@@ -138,9 +138,9 @@ assigned_thirds = {
     'CDFGH': 'Sweden',
     'CEFHI': 'Ecuador',
     'EHIJK': 'DR Congo',
-    'AEHIJ': 'Algeria',
+    'AEHIJ': 'Senegal',
     'BEFIJ': 'Bosnia and Herzegovina',
-    'EFGIJ': 'Senegal',
+    'EFGIJ': 'Algeria',
     'DEIJL': 'Ghana',
 }
 
