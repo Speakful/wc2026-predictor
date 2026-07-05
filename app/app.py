@@ -453,10 +453,10 @@ elif view == "🗂 Tournament Bracket":
         )
 
     # Build match data for each stage
-    left_r32_order  = [73, 75, 74, 77, 83, 84, 81, 82]
-    right_r32_order = [76, 78, 79, 80, 86, 88, 85, 87]
-    left_r16_order  = [89, 90, 93, 94]
-    right_r16_order = [91, 92, 95, 96]
+    left_r32_order  = [73, 75, 83, 84, 74, 77, 81, 82]
+    right_r32_order = [76, 78, 86, 88, 79, 80, 85, 87]
+    left_r16_order  = [89, 93, 90, 94]
+    right_r16_order = [91, 95, 92, 96]
     left_qf_order   = [97, 98]
     right_qf_order  = [99, 100]
 
