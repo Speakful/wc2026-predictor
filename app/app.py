@@ -168,23 +168,80 @@ win_prob = dict(zip(df['team'], df['win_prob']))
 def likely_winner(t1, t2):
     return t1 if win_prob.get(t1,0.5) >= win_prob.get(t2,0.5) else t2
 
-r32_teams = {mid: (resolve_slot(h), resolve_slot(a)) for mid,(h,a) in R32_BRACKET.items()}
-match_winners = {mid: likely_winner(h,a) for mid,(h,a) in r32_teams.items()}
-r16_matches = {}
-for mid,(r1,r2) in R16_BRACKET.items():
-    h,a = match_winners[r1], match_winners[r2]
-    r16_matches[mid] = (h,a)
+# ── Hardcoded bracket — real matchups as tournament progresses ────────────────
+r32_teams = {
+    73: ('South Africa', 'Canada'),
+    74: ('Brazil', 'Japan'),
+    75: ('Germany', 'Paraguay'),
+    76: ('Netherlands', 'Morocco'),
+    77: ('Ivory Coast', 'Norway'),
+    78: ('France', 'Sweden'),
+    79: ('Mexico', 'Ecuador'),
+    80: ('England', 'DR Congo'),
+    81: ('Belgium', 'Senegal'),
+    82: ('United States', 'Bosnia and Herzegovina'),
+    83: ('Spain', 'Austria'),
+    84: ('Portugal', 'Croatia'),
+    85: ('Switzerland', 'Algeria'),
+    86: ('Australia', 'Egypt'),
+    87: ('Argentina', 'Cape Verde'),
+    88: ('Colombia', 'Ghana'),
+}
+
+# R32 actual results — winner of each match
+r32_winners = {
+    73: 'Canada', 74: 'Brazil', 75: 'Paraguay', 76: 'Morocco',
+    77: 'Norway', 78: 'France', 79: 'Mexico', 80: 'England',
+    81: 'Belgium', 82: 'United States', 83: 'Spain', 84: 'Portugal',
+    85: 'Switzerland', 86: 'Egypt', 87: 'Argentina', 88: 'Colombia',
+}
+
+r16_matches = {
+    89: ('Canada', 'Morocco'),
+    90: ('Paraguay', 'France'),
+    91: ('Brazil', 'Norway'),
+    92: ('Mexico', 'England'),
+    93: ('Portugal', 'Spain'),
+    94: ('United States', 'Belgium'),
+    95: ('Argentina', 'Egypt'),
+    96: ('Switzerland', 'Colombia'),
+}
+
+# R16 actual results (fill in as played)
+r16_winners = {
+    89: 'Morocco',   # Canada 0-3 Morocco
+    90: 'France',    # Paraguay 0-1 France
+    # fill in remaining as played
+}
+
+def get_winner(match_id, results_dict, match_dict):
+    if match_id in results_dict:
+        return results_dict[match_id]
+    h, a = match_dict[match_id]
+    return likely_winner(h, a)
+
+match_winners = {}
+for mid, (h,a) in r32_teams.items():
+    match_winners[mid] = r32_winners.get(mid, likely_winner(h,a))
+for mid, (h,a) in r16_matches.items():
+    match_winners[mid] = r16_winners.get(mid, likely_winner(h,a))
+
+qf_matches = {
+    97: (match_winners[89], match_winners[90]),
+    98: (match_winners[93], match_winners[94]),
+    99: (match_winners[91], match_winners[92]),
+    100: (match_winners[95], match_winners[96]),
+}
+for mid,(h,a) in qf_matches.items():
     match_winners[mid] = likely_winner(h,a)
-qf_matches = {}
-for mid,(r1,r2) in QF_BRACKET.items():
-    h,a = match_winners[r1], match_winners[r2]
-    qf_matches[mid] = (h,a)
+
+sf_matches = {
+    101: (match_winners[97], match_winners[98]),
+    102: (match_winners[99], match_winners[100]),
+}
+for mid,(h,a) in sf_matches.items():
     match_winners[mid] = likely_winner(h,a)
-sf_matches = {}
-for mid,(q1,q2) in SF_BRACKET.items():
-    h,a = match_winners[q1], match_winners[q2]
-    sf_matches[mid] = (h,a)
-    match_winners[mid] = likely_winner(h,a)
+
 final_teams = (match_winners[101], match_winners[102])
 winner = likely_winner(*final_teams)
 
