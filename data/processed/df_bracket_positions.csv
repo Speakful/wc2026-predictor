@@ -1,49 +1,49 @@
 group,position,team,probability
-A,1,Mexico,0.6403
-A,2,Czechia,0.4399
-A,3,South Africa,0.3246
-A,4,South Korea,0.3246
-B,1,Canada,0.9752
-B,2,Qatar,0.7959
-B,3,Switzerland,0.7959
-B,4,Bosnia and Herzegovina,0.7711
-C,1,Brazil,0.6768
-C,2,Scotland,0.4683
-C,3,Morocco,0.8059
-C,4,Haiti,0.9445
-D,1,Turkey,0.544
-D,2,Paraguay,0.5065
-D,3,Australia,0.2788
-D,4,United States,0.1792
-E,1,Ecuador,0.825
-E,2,Germany,0.825
-E,3,Ivory Coast,1.0
-E,4,Curaçao,0.825
-F,1,Netherlands,1.0
-F,2,Japan,1.0
-F,3,Tunisia,1.0
-F,4,Sweden,1.0
-G,1,Iran,0.5787
-G,2,Egypt,0.6576
-G,3,New Zealand,0.535
-G,4,Belgium,0.4431
-H,1,Saudi Arabia,0.4385
-H,2,Uruguay,0.6528
-H,3,Spain,0.4385
-H,4,Cape Verde,0.8626
-I,1,France,0.7554
-I,2,Norway,0.4271
-I,3,Iraq,0.9853
-I,4,Senegal,0.5463
-J,1,Argentina,0.6355
-J,2,Algeria,0.6176
-J,3,Austria,0.6308
-J,4,Jordan,0.6228
-K,1,Portugal,0.5743
-K,2,Colombia,0.421
-K,3,DR Congo,0.5988
-K,4,Uzbekistan,0.704
-L,1,England,0.7276
-L,2,Croatia,0.5767
-L,3,Ghana,0.4578
-L,4,Panama,0.8807
+A,1,Mexico,1
+A,2,Czechia,1
+A,3,South Africa,1
+A,4,South Korea,1
+B,1,Canada,1
+B,2,Qatar,1
+B,3,Switzerland,1
+B,4,Bosnia and Herzegovina,1
+C,1,Brazil,1
+C,2,Scotland,1
+C,3,Morocco,1
+C,4,Haiti,1
+D,1,Turkey,1
+D,2,Paraguay,1
+D,3,Australia,1
+D,4,United States,1
+E,1,Ecuador,1
+E,2,Germany,1
+E,3,Ivory Coast,1
+E,4,Curaçao,1
+F,1,Netherlands,1
+F,2,Japan,1
+F,3,Tunisia,1
+F,4,Sweden,1
+G,1,Iran,1
+G,2,Egypt,1
+G,3,New Zealand,1
+G,4,Belgium,1
+H,1,Saudi Arabia,1
+H,2,Uruguay,1
+H,3,Spain,1
+H,4,Cape Verde,1
+I,1,France,1
+I,2,Norway,1
+I,3,Iraq,1
+I,4,Senegal,1
+J,1,Argentina,1
+J,2,Algeria,1
+J,3,Austria,1
+J,4,Jordan,1
+K,1,Portugal,1
+K,2,Colombia,1
+K,3,DR Congo,1
+K,4,Uzbekistan,1
+L,1,England,1
+L,2,Croatia,1
+L,3,Ghana,1
+L,4,Panama,1
