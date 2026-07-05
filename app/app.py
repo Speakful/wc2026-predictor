@@ -165,8 +165,12 @@ QF_BRACKET  = {97:(89,90), 98:(93,94), 99:(91,92), 100:(95,96)}
 SF_BRACKET  = {101:(97,98), 102:(99,100)}
 
 win_prob = dict(zip(df['team'], df['win_prob']))
-def likely_winner(t1, t2):
-    return t1 if win_prob.get(t1,0.5) >= win_prob.get(t2,0.5) else t2
+def likely_winner(t1, t2, col='win_prob'):
+    p1 = df[df['team']==t1][col].values
+    p2 = df[df['team']==t2][col].values
+    v1 = float(p1[0]) if len(p1) else 0
+    v2 = float(p2[0]) if len(p2) else 0
+    return t1 if v1 >= v2 else t2
 
 # ── Hardcoded bracket — real matchups as tournament progresses ────────────────
 r32_teams = {
@@ -378,11 +382,12 @@ elif view == "🗂 Tournament Bracket":
     def team_box(team, prob, winner=False):
         f = flag(team)
         name = team[:14]+"…" if len(team)>15 else team
-        bg = "rgba(110,85,20,0.98)" if winner else "rgba(45,35,10,0.95)"
-        border = "#C9A84C" if winner else "#3a3010"
+        bg = "#C9A84C" if winner else "rgba(45,35,10,0.95)"
+        border = "#D4A017" if winner else "#3a3010"
+        color = "#13131F" if winner else "#F0F0FA"
         return (
-            f'<div style="background:{bg};border:1px solid {border};border-radius:4px;'
-            f'padding:5px 7px;font-size:8px;color:#F0F0FA;text-align:center;'
+            f'<div style="background:{bg};border:2px solid {border};border-radius:4px;'
+            f'padding:5px 7px;font-size:8px;color:{color};text-align:center;'
             f'width:126px;height:{BH}px;box-sizing:border-box;'
             f'display:flex;flex-direction:column;justify-content:center;line-height:1.3;">'
             f'{f} {name}<br>'
@@ -453,42 +458,76 @@ elif view == "🗂 Tournament Bracket":
         )
 
     # Build match data for each stage
-    left_r32_order  = [73, 75, 83, 84, 74, 77, 81, 82]
-    right_r32_order = [76, 78, 86, 88, 79, 80, 85, 87]
-    left_r16_order  = [89, 93, 90, 94]
-    right_r16_order = [91, 95, 92, 96]
-    left_qf_order   = [97, 98]
-    right_qf_order  = [99, 100]
+    # LEFT side (top→bottom): pairs feed into R16, then QF, then SF
+    # Pair1: GER/PAR + FRA/SWE → R16 89 (PAR vs FRA → Morocco wins, France wins)
+    # Pair2: RSA/CAN + NED/MAR → R16 90 (CAN vs MAR)
+    # Pair3: POR/CRO + ESP/AUT → R16 93 (POR vs ESP)
+    # Pair4: USA/BIH + BEL/SEN → R16 94 (USA vs BEL)
+    LEFT_R32_D = [
+        ('Germany',       'Paraguay',               'Paraguay'),
+        ('France',        'Sweden',                 'France'),
+        ('South Africa',  'Canada',                 'Canada'),
+        ('Netherlands',   'Morocco',                'Morocco'),
+        ('Portugal',      'Croatia',                'Portugal'),
+        ('Spain',         'Austria',                'Spain'),
+        ('United States', 'Bosnia and Herzegovina', 'United States'),
+        ('Belgium',       'Senegal',                'Belgium'),
+    ]
+    # RIGHT side (top→bottom):
+    # Pair1: BRA/JPN + CIV/NOR → R16 91 (BRA vs NOR)
+    # Pair2: MEX/ECU + ENG/COD → R16 92 (MEX vs ENG)
+    # Pair3: ARG/CPV + AUS/EGY → R16 95 (ARG vs EGY)
+    # Pair4: SUI/ALG + COL/GHA → R16 96 (SUI vs COL)
+    RIGHT_R32_D = [
+        ('Brazil',      'Japan',      'Brazil'),
+        ('Ivory Coast', 'Norway',     'Norway'),
+        ('Mexico',      'Ecuador',    'Mexico'),
+        ('England',     'DR Congo',   'England'),
+        ('Argentina',   'Cape Verde', 'Argentina'),
+        ('Australia',   'Egypt',      'Egypt'),
+        ('Switzerland', 'Algeria',    'Switzerland'),
+        ('Colombia',    'Ghana',      'Colombia'),
+    ]
 
-    def r32_data(order):
-        data = []
-        for mid in order:
-            h,a = r32_teams[mid]
-            w = match_winners[mid]
-            data.append((h, get_pct(h,'quarter_final_pct'), a, get_pct(a,'quarter_final_pct'), w))
-        return data
+    def rwd(h, a, actual): return actual if actual else likely_winner(h, a, 'semi_final_prob')
 
-    def r16_data(order):
-        data = []
-        for mid in order:
-            h,a = r16_matches[mid]
-            w = match_winners[mid]
-            data.append((h, get_pct(h,'semi_final_pct'), a, get_pct(a,'semi_final_pct'), w))
-        return data
+    l32w = [rwd(h,a,w) for h,a,w in LEFT_R32_D]
+    r32w = [rwd(h,a,w) for h,a,w in RIGHT_R32_D]
 
-    def qf_data(order):
-        data = []
-        for mid in order:
-            h,a = qf_matches[mid]
-            w = match_winners[mid]
-            data.append((h, get_pct(h,'final_pct'), a, get_pct(a,'final_pct'), w))
-        return data
+    LEFT_R16_ACT  = ['France', 'Morocco', None, None]
+    RIGHT_R16_ACT = [None, None, None, None]
+    l16 = [(l32w[i*2], l32w[i*2+1]) for i in range(4)]
+    r16 = [(r32w[i*2], r32w[i*2+1]) for i in range(4)]
+    l16w = [rwd(h,a,LEFT_R16_ACT[i])  for i,(h,a) in enumerate(l16)]
+    r16w = [rwd(h,a,RIGHT_R16_ACT[i]) for i,(h,a) in enumerate(r16)]
 
-    sf_L_h, sf_L_a = sf_matches[101]; sf_L_w = match_winners[101]
-    sf_R_h, sf_R_a = sf_matches[102]; sf_R_w = match_winners[102]
-    f0, f1 = final_teams
+    LEFT_QF_ACT  = [None, None]
+    RIGHT_QF_ACT = [None, None]
+    lqf = [(l16w[i*2], l16w[i*2+1]) for i in range(2)]
+    rqf = [(r16w[i*2], r16w[i*2+1]) for i in range(2)]
+    lqfw = [rwd(h,a,LEFT_QF_ACT[i])  for i,(h,a) in enumerate(lqf)]
+    rqfw = [rwd(h,a,RIGHT_QF_ACT[i]) for i,(h,a) in enumerate(rqf)]
+
+    sf_L_h, sf_L_a = lqfw[0], lqfw[1]
+    sf_R_h, sf_R_a = rqfw[0], rqfw[1]
+    sf_L_w = rwd(sf_L_h, sf_L_a, None)
+    sf_R_w = rwd(sf_R_h, sf_R_a, None)
+
+    f0, f1 = sf_L_w, sf_R_w
     fp0 = get_pct(f0,'final_pct'); fp1 = get_pct(f1,'final_pct')
     wp  = get_pct(winner,'win_pct')
+
+    def r32_data(pairs, winners):
+        return [(h, get_pct(h,'quarter_final_pct'), a, get_pct(a,'quarter_final_pct'), winners[i])
+                for i,(h,a,_) in enumerate(pairs)]
+
+    def r16_data(matches, winners):
+        return [(h, get_pct(h,'semi_final_pct'), a, get_pct(a,'semi_final_pct'), winners[i])
+                for i,(h,a) in enumerate(matches)]
+
+    def qf_data(matches, winners):
+        return [(h, get_pct(h,'final_pct'), a, get_pct(a,'final_pct'), winners[i])
+                for i,(h,a) in enumerate(matches)]
 
     COL_W  = "134px"
     GAP_W  = "12px"
@@ -504,11 +543,11 @@ elif view == "🗂 Tournament Bracket":
 .center-col {{ min-width:160px; flex-shrink:0; }}
 </style>
 <div class="bk">
-  <div class="col">{stage_col("Round of 32",  r32_data(left_r32_order),  r32_centers)}</div>
+  <div class="col">{stage_col("Round of 32",    r32_data(LEFT_R32_D,  l32w), r32_centers)}</div>
   <div class="gap"></div>
-  <div class="col">{stage_col("Round of 16",  r16_data(left_r16_order),  r16_centers)}</div>
+  <div class="col">{stage_col("Round of 16",    r16_data(l16, l16w),         r16_centers)}</div>
   <div class="gap"></div>
-  <div class="col">{stage_col("Quarter-Finals", qf_data(left_qf_order),  qf_centers)}</div>
+  <div class="col">{stage_col("Quarter-Finals", qf_data(lqf,  lqfw),         qf_centers)}</div>
   <div class="gap"></div>
   <div class="col">{sf_col("Semi-Finals", sf_L_h, get_pct(sf_L_h,'semi_final_pct'), sf_L_a, get_pct(sf_L_a,'semi_final_pct'), sf_L_w)}</div>
   <div class="gap"></div>
@@ -516,14 +555,14 @@ elif view == "🗂 Tournament Bracket":
   <div class="gap"></div>
   <div class="col">{sf_col("Semi-Finals", sf_R_h, get_pct(sf_R_h,'semi_final_pct'), sf_R_a, get_pct(sf_R_a,'semi_final_pct'), sf_R_w)}</div>
   <div class="gap"></div>
-  <div class="col">{stage_col("Quarter-Finals", qf_data(right_qf_order), qf_centers)}</div>
+  <div class="col">{stage_col("Quarter-Finals", qf_data(rqf,  rqfw),         qf_centers)}</div>
   <div class="gap"></div>
-  <div class="col">{stage_col("Round of 16",  r16_data(right_r16_order), r16_centers)}</div>
+  <div class="col">{stage_col("Round of 16",    r16_data(r16, r16w),         r16_centers)}</div>
   <div class="gap"></div>
-  <div class="col">{stage_col("Round of 32",  r32_data(right_r32_order), r32_centers)}</div>
+  <div class="col">{stage_col("Round of 32",    r32_data(RIGHT_R32_D, r32w), r32_centers)}</div>
 </div>"""
 
-    components.html(html, height=700, scrolling=True)
+    components.html(html, height=900, scrolling=True)
 
 # ════════════════════════════════
 # VIEW 3 — TEAM PROFILE
@@ -687,4 +726,3 @@ st.markdown(f'<div style="text-align:center;color:{TEXT_MUTED};font-size:0.8rem;
             "Training data: 418 historical WC matches between 2026 qualified nations</div>",
             unsafe_allow_html=True)
 # NOTE: This append block is just for reference — see full file rebuild below !
-
