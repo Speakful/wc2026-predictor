@@ -71,35 +71,35 @@ match_id,home_team,away_team,status,winner
 70,DR Congo,Uzbekistan,locked,
 71,Algeria,Austria,locked,
 72,Jordan,Argentina,locked,
-73,Mexico,Qatar,locked,Canada
-74,Brazil,Japan,predicted,Japan
-75,Ecuador,Czechia,predicted,Czechia
-76,Netherlands,Scotland,predicted,Scotland
-77,Germany,Senegal,predicted,Senegal
-78,France,Morocco,predicted,Morocco
-79,South Korea,Morocco,predicted,Morocco
-80,England,Ivory Coast,predicted,England
-81,Belgium,Czechia,predicted,Czechia
-82,United States,Switzerland,predicted,Switzerland
-83,Saudi Arabia,Argentina,predicted,Argentina
-84,DR Congo,Croatia,predicted,Croatia
-85,Canada,Ivory Coast,predicted,Canada
-86,Paraguay,Iran,predicted,Paraguay
-87,Algeria,Uruguay,predicted,Uruguay
-88,Colombia,Australia,predicted,Australia
-89,Canada,Czechia,predicted,Canada
-90,Japan,Senegal,predicted,Japan
-91,Scotland,Morocco,predicted,Morocco
-92,Morocco,England,predicted,England
-93,Argentina,Croatia,predicted,Argentina
-94,Czechia,Switzerland,predicted,Switzerland
-95,Paraguay,Australia,predicted,Paraguay
-96,Canada,Uruguay,predicted,Uruguay
-97,Canada,Japan,predicted,Japan
-98,Argentina,Switzerland,predicted,Argentina
-99,Morocco,England,predicted,England
-100,Paraguay,Uruguay,predicted,Paraguay
-101,Japan,Argentina,predicted,Argentina
-102,England,Paraguay,predicted,England
-103,Japan,Paraguay,predicted,Paraguay
-104,Argentina,England,predicted,Argentina
+73,Czechia,Qatar,locked,Canada
+74,Brazil,Japan,locked,Brazil
+75,Germany,Switzerland,locked,Paraguay
+76,Netherlands,Morocco,locked,Morocco
+77,Curaçao,Norway,locked,Norway
+78,France,Haiti,locked,France
+79,Mexico,Haiti,locked,Mexico
+80,Ghana,Ivory Coast,locked,England
+81,Iran,Ivory Coast,locked,Belgium
+82,United States,Switzerland,locked,United States
+83,Saudi Arabia,Algeria,locked,Spain
+84,DR Congo,Croatia,locked,Portugal
+85,Canada,Ivory Coast,locked,Switzerland
+86,Turkey,Egypt,locked,Egypt
+87,Argentina,Uruguay,locked,Argentina
+88,Colombia,Paraguay,locked,Colombia
+89,Canada,Paraguay,locked,Morocco
+90,Brazil,Norway,locked,France
+91,Morocco,France,predicted,France
+92,Mexico,England,predicted,England
+93,Spain,Portugal,predicted,Spain
+94,Belgium,United States,predicted,United States
+95,Egypt,Colombia,predicted,Colombia
+96,Switzerland,Argentina,predicted,Argentina
+97,Morocco,France,predicted,France
+98,Spain,United States,predicted,United States
+99,France,England,predicted,France
+100,Colombia,Argentina,predicted,Argentina
+101,France,United States,predicted,United States
+102,France,Argentina,predicted,Argentina
+103,France,France,predicted,France
+104,United States,Argentina,predicted,Argentina
