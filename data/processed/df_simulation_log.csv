@@ -71,35 +71,35 @@ match_id,home_team,away_team,status,winner
 70,DR Congo,Uzbekistan,locked,
 71,Algeria,Austria,locked,
 72,Jordan,Argentina,locked,
-73,Czechia,Qatar,locked,Canada
+73,Mexico,Bosnia and Herzegovina,locked,Canada
 74,Brazil,Japan,locked,Brazil
-75,Germany,Switzerland,locked,Paraguay
+75,Ecuador,Czechia,locked,Paraguay
 76,Netherlands,Morocco,locked,Morocco
-77,Curaçao,Norway,locked,Norway
-78,France,Haiti,locked,France
-79,Mexico,Haiti,locked,Mexico
+77,Germany,Senegal,locked,Norway
+78,France,Scotland,locked,France
+79,South Korea,Scotland,locked,Mexico
 80,Ghana,Ivory Coast,locked,England
-81,Iran,Ivory Coast,locked,Belgium
-82,United States,Switzerland,locked,United States
-83,Saudi Arabia,Algeria,locked,Spain
+81,Iran,Czechia,locked,Belgium
+82,United States,Qatar,locked,United States
+83,Spain,Algeria,locked,Spain
 84,DR Congo,Croatia,locked,Portugal
 85,Canada,Ivory Coast,locked,Switzerland
 86,Turkey,Egypt,locked,Egypt
 87,Argentina,Uruguay,locked,Argentina
-88,Colombia,Paraguay,locked,Colombia
+88,Portugal,Paraguay,locked,Colombia
 89,Canada,Paraguay,locked,Morocco
 90,Brazil,Norway,locked,France
-91,Morocco,France,predicted,France
-92,Mexico,England,predicted,England
-93,Spain,Portugal,predicted,Spain
-94,Belgium,United States,predicted,United States
-95,Egypt,Colombia,predicted,Colombia
-96,Switzerland,Argentina,predicted,Argentina
-97,Morocco,France,predicted,France
-98,Spain,United States,predicted,United States
-99,France,England,predicted,France
-100,Colombia,Argentina,predicted,Argentina
-101,France,United States,predicted,United States
-102,France,Argentina,predicted,Argentina
-103,France,France,predicted,France
-104,United States,Argentina,predicted,Argentina
+91,Morocco,France,locked,Norway
+92,Mexico,England,locked,England
+93,Spain,Portugal,locked,Spain
+94,Belgium,United States,locked,Belgium
+95,Egypt,Colombia,locked,Argentina
+96,Switzerland,Argentina,locked,Switzerland
+97,Morocco,France,locked,France
+98,Spain,Belgium,locked,Belgium
+99,Norway,England,locked,England
+100,Argentina,Switzerland,locked,Argentina
+101,France,Belgium,locked,Spain
+102,England,Argentina,locked,Argentina
+103,France,England,locked,England
+104,Spain,Argentina,locked,Spain
