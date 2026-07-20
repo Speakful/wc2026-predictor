@@ -9,6 +9,42 @@ A machine learning project that predicts the FIFA World Cup 2026 winner using ma
 
 ---
 
+## Tournament Results
+
+The 2026 FIFA World Cup is over. **Spain won the tournament**, defeating Argentina in the Final. The model had predicted Argentina as the winner.
+
+### Model Accuracy by Round
+
+| Round | Correct | Total | Accuracy |
+|-------|---------|-------|----------|
+| Round of 32 | 11 | 16 | 68.8% |
+| Round of 16 | 6 | 8 | 75.0% |
+| Quarter-Finals | 3 | 4 | 75.0% |
+| Semi-Finals | 1 | 2 | 50.0% |
+| Third Place | 0 | 1 | 0.0% |
+| Final | 0 | 1 | 0.0% |
+| **Overall** | **21** | **32** | **65.6%** |
+
+### Key Upsets the Model Missed
+
+- **Round of 32:** Brazil beat Japan · Morocco beat Netherlands · France beat Sweden · Portugal beat Croatia · Egypt beat Australia
+- **Round of 16:** Morocco beat Canada · Belgium beat United States
+- **Quarter-Finals:** England beat Norway
+- **Semi-Finals:** Spain beat France
+- **Final:** Spain beat Argentina
+
+### Pre-Tournament Predictions vs Reality
+
+| | Model Predicted | Actual |
+|---|---|---|
+| Winner | Argentina (33.7%) | Spain |
+| Runner-up | Spain | Argentina |
+| Semi-finalists | France, England | France, England ✅ |
+
+The model correctly identified France and England as semi-finalists and got 65.6% of knockout matches right — a reasonable result given the inherent unpredictability of tournament football.
+
+---
+
 ## How It Works
 
 Rather than picking a single predicted winner, the model simulates the entire tournament **10,000 times**. Each match outcome is sampled probabilistically from the model's predictions, producing a full **win probability distribution** across all 48 teams. Probabilities update after each match day as real results are locked in — the simulation re-runs with completed matches as fixed outcomes while remaining matches stay probabilistic.
@@ -112,14 +148,14 @@ After each match day, real results are manually added to `data/processed/results
 
 ## Dashboard
 
-The interactive Streamlit dashboard includes five views:
+The interactive Streamlit dashboard includes six views:
 
 - **Hero** — win probabilities for all 48 teams with stage-by-stage breakdown
 - **Tournament Bracket** — official 2026 bracket with predicted path and win probabilities
 - **Team Profile** — per-team radar chart and stage reach probabilities
 - **Monte Carlo Insights** — dark horses, biggest upsets, and probability distributions
 - **Feature Importance** — XGBoost feature importance chart
-- **Model Validation** — predicted vs actual results, accuracy tracking, and upset log as the tournament progresses
+- **Model Validation** — predicted vs actual results, accuracy tracking, and upset log
 
 ---
 
