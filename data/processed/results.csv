@@ -96,7 +96,7 @@ match_id,date,stage,group,home_team,away_team,home_score,away_score,home_score_p
 95,07/07/2026,round_of_16,,Argentina,Egypt,3,2,,,,Argentina,Argentina,
 96,07/07/2026,round_of_16,,Switzerland,Colombia,0,0,4,3,True,Switzerland,Switzerland,
 97,09/07/2026,quarter_final,,Morocco,France,2,0,,,,France,France,
-98,10/07/2026,quarter_final,,Spain,Belgium,2,1,,,,Belgium,Spain,
+98,10/07/2026,quarter_final,,Spain,Belgium,2,1,,,,Spain,Spain,
 99,10/07/2026,quarter_final,,Norway,England,1,2,,,,England,Norway,
 100,11/07/2026,quarter_final,,Argentina,Switzerland,3,1,,,,Argentina,Argentina,
 101,14/07/2026,semi_final,,France,Spain,0,2,,,,Spain,France,
